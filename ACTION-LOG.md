@@ -30,6 +30,29 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-28 — GitHub push via GCM + sync-gh-auth repair
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent |
+| **Action** | GCM OAuth push (oren-gcs); repaired `sync-gh-auth.ps1` (GCM → `GH_TOKEN` + `gh auth setup-git`); auto-push calls sync when auth missing |
+| **Target** | `https://github.com/oren-gcs/ai-workspace`, `https://github.com/oren-gcs/doc-power-local-k8s` |
+| **Result** | success — ai-workspace/doc-power pushes confirmed; sync-gh-auth validates API login without `--with-token` |
+| **Next step** | none |
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+
+
 ### 2026-08-28 — Device-access-resolver system deployed
 
 | Field | Value |
@@ -41,16 +64,6 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Next step** | User: set GH_TOKEN user env or `gh auth login` as oren-gcs; then `auto-push.ps1` |
 
 
-### 2026-08-28 — sync-gh-auth
-
-| Field | Value |
-|---|---|
-| **Actor** | sync-gh-auth.ps1 |
-| **Action** | Sync gh auth from GH_TOKEN or GCM |
-| **Target** | Windows gh CLI |
-| **Result** | blocked |
-| **Next step** | Set GH_TOKEN user env or run gh auth login interactively |
-
 
 ### 2026-08-28 — Auto-push skipped (no auth)
 
@@ -63,26 +76,6 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
 
 
-### 2026-08-28 — sync-gh-auth
-
-| Field | Value |
-|---|---|
-| **Actor** | sync-gh-auth.ps1 |
-| **Action** | Sync gh auth from GH_TOKEN or GCM |
-| **Target** | Windows gh CLI |
-| **Result** | blocked |
-| **Next step** | Set GH_TOKEN user env or run gh auth login interactively |
-
-
-### 2026-08-28 — sync-gh-auth
-
-| Field | Value |
-|---|---|
-| **Actor** | sync-gh-auth.ps1 |
-| **Action** | Sync gh auth from GH_TOKEN or GCM |
-| **Target** | Windows gh CLI |
-| **Result** | blocked |
-| **Next step** | Set GH_TOKEN user env or run gh auth login interactively |
 
 
 ### 2026-08-28 — Auto-push skipped (no auth)
@@ -95,16 +88,6 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Result** | blocked |
 | **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
 
-
-### 2026-08-28 — sync-gh-auth
-
-| Field | Value |
-|---|---|
-| **Actor** | sync-gh-auth.ps1 |
-| **Action** | Sync gh auth from GH_TOKEN or GCM |
-| **Target** | Windows gh CLI |
-| **Result** | blocked |
-| **Next step** | Set GH_TOKEN user env or run gh auth login interactively |
 
 
 ### 2026-08-28 — Auto-push skipped (no auth)
@@ -365,8 +348,7 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Result** | VS Code opened; doc-power healthy (19 containers Up, HTTP 3000 → 200); auto-push skipped (no gh auth); ProjectAgent list OK |
 | **Next step** | Run `gh auth login -h github.com -p https` in VS Code terminal, then re-run `scripts\auto-push.ps1` |
 ---
-
-## Related docs
+`n## Related docs
 
 - [VSCODE-MANAGEMENT.md](./docs/VSCODE-MANAGEMENT.md) — daily VS Code workflow
 - [WSL-MANAGEMENT.md](./docs/WSL-MANAGEMENT.md) — WSL paths, gh, docker, gcloud

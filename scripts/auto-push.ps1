@@ -1,4 +1,4 @@
-# auto-push.ps1 — Push configured repos when ahead of remote and GitHub auth is available.
+﻿# auto-push.ps1 — Push configured repos when ahead of remote and GitHub auth is available.
 # Never force-pushes. Logs to F:\ai-workspace\ACTION-LOG.md
 param(
     [string]$ConfigPath = "F:\ai-workspace\config\auto-push-repos.json",
@@ -168,6 +168,14 @@ $repos = @($config.repos)
 if ($OnlyPath) {
     $norm = ($OnlyPath -replace '\\', '/').TrimEnd('/')
     $repos = @($repos | Where-Object { ($_.path -replace '\\', '/').TrimEnd('/') -eq $norm })
+}
+
+if (-not (Test-GitHubAuthAvailable)) {
+    $syncScript = Join-Path $PSScriptRoot "sync-gh-auth.ps1"
+    if (-not $env:GH_TOKEN -and (Test-Path $syncScript)) {
+        Write-Host "GitHub auth unavailable; trying sync-gh-auth.ps1 (GCM -> GH_TOKEN)..."
+        & $syncScript -Quiet
+    }
 }
 
 if (-not (Test-GitHubAuthAvailable)) {
