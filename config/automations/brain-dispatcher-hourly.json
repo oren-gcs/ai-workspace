@@ -1,0 +1,24 @@
+{
+  "name": "Brain queue drain (hourly)",
+  "description": "Read brain queue, update RESUME, log blockers to ACTION-LOG",
+  "draft": true,
+  "workflow": {
+    "triggers": [
+      {
+        "cron": {
+          "cron": "0 * * * *"
+        }
+      }
+    ],
+    "actions": [],
+    "prompts": [
+      "You are the brain-dispatcher agent. Read-only first:\n1. C:\\Users\\oren\\.claude\\brain\\queue.json\n2. C:\\Users\\oren\\.claude\\brain\\RESUME.md\n3. F:\\ai-workspace\\ACTION-LOG.md (append only if action taken)\n\nDrain pending items you can complete without user interaction.\nFor blocked items (gh auth, GUI, elevation), append ACTION-LOG entry.\nNever commit secrets. Never force push."
+    ],
+    "model": "",
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": true
+  },
+  "notes": "Import via Cursor Automations editor. Confirm cron timezone and cloud compute."
+}

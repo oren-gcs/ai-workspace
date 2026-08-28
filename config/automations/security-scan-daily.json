@@ -1,0 +1,24 @@
+{
+  "name": "Daily security review",
+  "description": "Run security-scan-review skill against F: winner repos",
+  "draft": true,
+  "workflow": {
+    "triggers": [
+      {
+        "cron": {
+          "cron": "0 9 * * 1-5"
+        }
+      }
+    ],
+    "actions": [],
+    "prompts": [
+      "Load skill: C:\\Users\\oren\\.cursor\\skills\\security-scan-review\\SKILL.md\n\nScan (read-only):\n- F:\\DevSecOps\\projects\\doc-power-local-k8s\\docker-compose.yml port bindings\n- F:\\DevSecOps\\projects\\cka-ai-bootcamp\\bridge_agent.py bind/debug/auth\n- F:\\fun4kids — no .env or credentials in git status\n\nAppend findings to F:\\ai-workspace\\ACTION-LOG.md.\nDo not deploy, prune docker, or delete resources."
+    ],
+    "model": "",
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": true
+  },
+  "notes": "Import via Cursor Automations editor. Schedule 9am local, weekdays."
+}
