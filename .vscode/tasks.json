@@ -241,6 +241,29 @@
                                          ]
                   },
                   {
+                      "label":  "Spotify OAuth (open auth URL)",
+                      "type":  "shell",
+                      "command":  "powershell",
+                      "args":  [
+                                   "-NoProfile",
+                                   "-ExecutionPolicy",
+                                   "Bypass",
+                                   "-File",
+                                   "F:\\ai-workspace\\projects\\grok-social-bot\\scripts\\spotify-auth.ps1"
+                               ],
+                      "options":  {
+                                      "cwd":  "${workspaceFolder}"
+                                  },
+                      "group":  "none",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
                       "label":  "Auto-push all repos (PowerShell)",
                       "problemMatcher":  [
 

@@ -1,4 +1,5 @@
 import type { AppConfig } from "./config.js";
+import { createSpotifyConnector } from "./connectors/spotify.js";
 import { GrokClient } from "./grok-client.js";
 import { createSocialConnectors, formatMention, type SocialMention } from "./social/index.js";
 import { createWhatsAppNotifier } from "./whatsapp/index.js";
@@ -14,9 +15,11 @@ export class BotScheduler {
     const connectors = createSocialConnectors(this.config);
     const whatsapp = createWhatsAppNotifier(this.config);
 
+    const spotify = createSpotifyConnector(this.config);
     const configured = connectors.filter((c) => c.isConfigured);
     console.log(
       `[cycle] social configured: ${configured.map((c) => c.platform).join(", ") || "none"} | ` +
+        `spotify: ${spotify?.isConfigured ? "ready" : this.config.spotify.enabled ? "awaiting token" : "off"} | ` +
         `whatsapp: ${whatsapp.provider} (${whatsapp.isConfigured ? "ready" : "stub"}) | ` +
         `grok: ${grok.isConfigured ? "ready" : "missing XAI_API_KEY"} | ` +
         `dryRun: ${this.config.runner.dryRun}`
@@ -30,14 +33,23 @@ export class BotScheduler {
     this.lastPoll = new Date();
 
     const formatted = allMentions.map(formatMention);
+    const spotifyLines = spotify ? await spotify.fetchDigestLines() : [];
     let digest: string;
 
-    if (grok.isConfigured && formatted.length > 0) {
-      digest = await grok.summarizeMentions(formatted);
-    } else if (formatted.length > 0) {
-      digest = `Mentions (${formatted.length}):\n\n${formatted.join("\n\n")}`;
+    if (grok.isConfigured && (formatted.length > 0 || spotifyLines.length > 0)) {
+      digest = await grok.summarizeDigest(formatted, spotifyLines);
+    } else if (formatted.length > 0 || spotifyLines.length > 0) {
+      const parts: string[] = [];
+      if (formatted.length > 0) {
+        parts.push(`Mentions (${formatted.length}):\n\n${formatted.join("\n\n")}`);
+      }
+      if (spotifyLines.length > 0) {
+        parts.push(`Spotify (${spotifyLines.length}):\n\n${spotifyLines.join("\n")}`);
+      }
+      digest = parts.join("\n\n---\n\n");
     } else {
-      digest = "Grok Social Bot: no new mentions this cycle. (Social APIs not connected yet — enable platforms in .env after OAuth.)";
+      digest =
+        "Grok Social Bot: no new mentions or listening activity this cycle. (Enable platforms in .env after OAuth.)";
     }
 
     const result = await whatsapp.sendDigest(digest);

@@ -224,3 +224,4 @@ Run device check: `F:\ai-workspace\scripts\device-access-check.ps1`
 - [System User tokens](https://developers.facebook.com/docs/marketing-api/system-users)
 - Bot WhatsApp overview: [WHATSAPP-SETUP.md](WHATSAPP-SETUP.md)
 - Social accounts: [SOCIAL-ACCOUNTS.md](SOCIAL-ACCOUNTS.md)
+- All platforms index: [CONNECTED-PLATFORMS.md](CONNECTED-PLATFORMS.md)

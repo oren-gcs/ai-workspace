@@ -59,24 +59,40 @@ export class GrokClient {
     };
   }
 
-  async summarizeMentions(mentions: string[]): Promise<string> {
-    if (mentions.length === 0) {
-      return "No new social mentions in this cycle.";
+  async summarizeDigest(mentions: string[], spotifyActivity: string[] = []): Promise<string> {
+    if (mentions.length === 0 && spotifyActivity.length === 0) {
+      return "No new social mentions or listening activity in this cycle.";
     }
 
-    const bulletList = mentions.map((m, i) => `${i + 1}. ${m}`).join("\n");
+    const sections: string[] = [];
+    if (mentions.length > 0) {
+      const bulletList = mentions.map((m, i) => `${i + 1}. ${m}`).join("\n");
+      sections.push(`Social mentions:\n${bulletList}`);
+    }
+    if (spotifyActivity.length > 0) {
+      const spotifyList = spotifyActivity.map((s, i) => `${i + 1}. ${s}`).join("\n");
+      sections.push(`Spotify listening:\n${spotifyList}`);
+    }
+
     const result = await this.chat([
       {
         role: "system",
         content:
-          "You summarize social media mentions for a WhatsApp digest. Be concise, actionable, under 400 words. Flag sentiment and any urgent items.",
+          "You summarize social media mentions and Spotify listening activity for a WhatsApp digest. " +
+          "Be concise, actionable, under 400 words. Flag sentiment and any urgent items. " +
+          "When Spotify data is present, briefly note listening mood or patterns (e.g. focus music, new artists).",
       },
       {
         role: "user",
-        content: `Summarize these mentions:\n\n${bulletList}`,
+        content: `Summarize for today's digest:\n\n${sections.join("\n\n")}`,
       },
     ]);
 
     return result.text;
+  }
+
+  /** @deprecated Use summarizeDigest */
+  async summarizeMentions(mentions: string[]): Promise<string> {
+    return this.summarizeDigest(mentions);
   }
 }

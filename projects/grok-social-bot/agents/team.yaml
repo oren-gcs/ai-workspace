@@ -28,6 +28,15 @@ roles:
       Implement SocialConnector interface per platform user enables.
       OAuth in Chrome profile mapped to oren@gcs-tech.org (work lane). Never store tokens in repo.
 
+  SpotifyConnector:
+    skill: device-access-resolver
+    mcpServers: [filesystem]
+    instructions: |
+      Spotify Web API via PKCE OAuth (local/src/connectors/spotify.ts).
+      Scopes: user-read-recently-played, user-read-currently-playing, playlist-read-private, user-top-read.
+      Feeds listening activity into Grok digest — not social mentions.
+      Auth: scripts/spotify-auth.ps1 or /auth/spotify/start on 127.0.0.1:3847.
+
   WhatsAppNotifier:
     skill: device-access-resolver
     mcpServers: [filesystem]
@@ -56,4 +65,4 @@ mcp:
 monetization:
   primary: Social listening / mention alerts via WhatsApp
   nextMilestone: XAI_API_KEY + Twilio sandbox test digest
-  apis: [xai-grok, meta-whatsapp, twilio-whatsapp, twitter-x, linkedin, instagram-graph]
+  apis: [xai-grok, meta-whatsapp, twilio-whatsapp, twitter-x, linkedin, instagram-graph, spotify-web-api]

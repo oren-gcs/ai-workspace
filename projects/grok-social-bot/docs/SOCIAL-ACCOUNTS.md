@@ -10,6 +10,7 @@
 | X (Twitter) | X API v2 | `ENABLE_TWITTER=true` | `TWITTER_BEARER_TOKEN`, OAuth 1.0a keys |
 | LinkedIn | Marketing / Share API | `ENABLE_LINKEDIN=true` | `LINKEDIN_CLIENT_ID`, `LINKEDIN_ACCESS_TOKEN` |
 | Instagram | Meta Graph API | `ENABLE_INSTAGRAM=true` | `INSTAGRAM_APP_ID`, `INSTAGRAM_ACCESS_TOKEN` |
+| Spotify | Spotify Web API | `ENABLE_SPOTIFY=true` | `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REFRESH_TOKEN` |
 
 Implementations live in `local/src/social/` — Facebook has a Graph API connector; others return empty arrays until OAuth is complete.
 
@@ -109,6 +110,28 @@ Mentions/comments: Graph API `/{ig-user-id}/tags` and webhooks — implement aft
 
 ---
 
+## Spotify (listening activity)
+
+Spotify is **not** a social-mention platform — it feeds **listening context** into the Grok digest (recent tracks, now playing, top artists).
+
+1. https://developer.spotify.com/dashboard
+2. Create app → redirect URI: `http://127.0.0.1:3847/auth/spotify/callback`
+3. OAuth via PKCE: `scripts/spotify-auth.ps1` (bot must be running)
+4. `.env`:
+   ```
+   ENABLE_SPOTIFY=true
+   SPOTIFY_CLIENT_ID=
+   SPOTIFY_CLIENT_SECRET=
+   SPOTIFY_REDIRECT_URI=http://127.0.0.1:3847/auth/spotify/callback
+   SPOTIFY_REFRESH_TOKEN=
+   ```
+
+**Account choice:** Personal Spotify recommended for daily listening digest; Meta/Facebook still uses work Chrome profile.
+
+Full guide: [SPOTIFY-SETUP.md](SPOTIFY-SETUP.md)
+
+---
+
 ## Token storage (professional)
 
 | Method | Use |
@@ -129,7 +152,7 @@ Mentions/comments: Graph API `/{ig-user-id}/tags` and webhooks — implement aft
 - [ ] Set redirect URI to `127.0.0.1` for local
 - [ ] Complete browser consent
 - [ ] Copy tokens to `.env`
-- [ ] Set `ENABLE_<PLATFORM>=true`
+- [ ] Set `ENABLE_<PLATFORM>=true` (or `ENABLE_SPOTIFY=true`)
 - [ ] Restart bot session
 - [ ] Update `accounts-connection-map.json` → `grok_bot.status`
 

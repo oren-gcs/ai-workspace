@@ -90,7 +90,16 @@
         "localWebhook": "http://127.0.0.1:3847/webhook/whatsapp",
         "setupWizard": "F:\\ai-workspace\\projects\\grok-social-bot\\docs\\CONFIG-META-WHATSAPP-FACEBOOK.md"
       },
-      "authHooks": ["xai", "meta_whatsapp", "meta_facebook", "twilio", "twitter_oauth", "linkedin_oauth", "gh"],
+      "spotify": {
+        "developerDashboard": "https://developer.spotify.com/dashboard",
+        "developerAppName": "grok-social-bot",
+        "redirectUri": "http://127.0.0.1:3847/auth/spotify/callback",
+        "oauthScript": "F:\\ai-workspace\\projects\\grok-social-bot\\scripts\\spotify-auth.ps1",
+        "setupWizard": "F:\\ai-workspace\\projects\\grok-social-bot\\docs\\SPOTIFY-SETUP.md",
+        "accountHint": "personal recommended for listening digest; independent of Meta work profile",
+        "status": "awaiting_user_oauth_and_refresh_token"
+      },
+      "authHooks": ["xai", "meta_whatsapp", "meta_facebook", "twilio", "twitter_oauth", "linkedin_oauth", "spotify_oauth", "gh"],
       "envTemplate": "F:\\ai-workspace\\projects\\grok-social-bot\\local\\.env.example",
       "status": "meta_scaffold_awaiting_user_oauth_and_tokens"
     }
