@@ -228,3 +228,9 @@ This keeps all terminals and tools native to Linux while editing F: files.
 | | gh account verification, audit runs |
 
 See [ACTION-LOG](../ACTION-LOG.md) for entry template and convention.
+
+---
+
+## Auto-push to GitHub
+
+See [AUTO-PUSH.md](./AUTO-PUSH.md) for GH_TOKEN, hooks, scheduled tasks, and repo list.

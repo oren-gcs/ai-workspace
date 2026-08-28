@@ -1,0 +1,6 @@
+{
+  "repos": [
+    {"path": "F:/DevSecOps/projects/doc-power-local-k8s", "remote": "oren-gcs/doc-power-local-k8s", "branch": "master"},
+    {"path": "F:/ai-workspace", "remote": "oren-gcs/ai-workspace", "branch": "master"}
+  ]
+}

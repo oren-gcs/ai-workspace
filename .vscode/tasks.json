@@ -1,158 +1,217 @@
-{
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "doc-power: docker compose up",
-      "type": "shell",
-      "command": "wsl",
-      "args": [
-        "-d",
-        "Ubuntu-24.04",
-        "-e",
-        "bash",
-        "-lc",
-        "cd /mnt/f/DevSecOps/projects/doc-power-local-k8s && docker compose up -d"
-      ],
-      "group": "build",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "doc-power: docker compose down",
-      "type": "shell",
-      "command": "wsl",
-      "args": [
-        "-d",
-        "Ubuntu-24.04",
-        "-e",
-        "bash",
-        "-lc",
-        "cd /mnt/f/DevSecOps/projects/doc-power-local-k8s && docker compose down"
-      ],
-      "group": "build",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "doc-power: docker compose logs (follow)",
-      "type": "shell",
-      "command": "wsl",
-      "args": [
-        "-d",
-        "Ubuntu-24.04",
-        "-e",
-        "bash",
-        "-lc",
-        "cd /mnt/f/DevSecOps/projects/doc-power-local-k8s && docker compose logs -f"
-      ],
-      "isBackground": true,
-      "presentation": {
-        "reveal": "always",
-        "panel": "dedicated"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "agent-class: npm run list (WSL)",
-      "type": "shell",
-      "command": "wsl",
-      "args": [
-        "-d",
-        "Ubuntu-24.04",
-        "-e",
-        "bash",
-        "-lc",
-        "cd /mnt/f/ai-workspace/lib/agent-class && npm run list"
-      ],
-      "group": "test",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "agent-class: npm run list (PowerShell)",
-      "type": "shell",
-      "command": "npm run list",
-      "options": {
-        "cwd": "${workspaceFolder}/lib/agent-class"
-      },
-      "group": "test",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "agent-class: pm dry-run (doc-power, WSL)",
-      "type": "shell",
-      "command": "wsl",
-      "args": [
-        "-d",
-        "Ubuntu-24.04",
-        "-e",
-        "bash",
-        "-lc",
-        "cd /mnt/f/ai-workspace/lib/agent-class && npm run pm -- doc-power --dry-run \"Review backlog for P0 blockers\""
-      ],
-      "group": "test",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "agent-class: pm dry-run (doc-power, PowerShell)",
-      "type": "shell",
-      "command": "npm run pm -- doc-power --dry-run \"Review backlog for P0 blockers\"",
-      "options": {
-        "cwd": "${workspaceFolder}/lib/agent-class"
-      },
-      "group": "test",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "gh: auth status (WSL)",
-      "type": "shell",
-      "command": "wsl",
-      "args": [
-        "-d",
-        "Ubuntu-24.04",
-        "-e",
-        "bash",
-        "-lc",
-        "gh auth status; git config user.name; git config user.email"
-      ],
-      "group": "none",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "gh: auth status (PowerShell)",
-      "type": "shell",
-      "command": "gh auth status; git config user.name; git config user.email",
-      "group": "none",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    }
-  ]
+﻿{
+    "version":  "2.0.0",
+    "tasks":  [
+                  {
+                      "label":  "doc-power: docker compose up",
+                      "type":  "shell",
+                      "command":  "wsl",
+                      "args":  [
+                                   "-d",
+                                   "Ubuntu-24.04",
+                                   "-e",
+                                   "bash",
+                                   "-lc",
+                                   "cd /mnt/f/DevSecOps/projects/doc-power-local-k8s \u0026\u0026 docker compose up -d"
+                               ],
+                      "group":  "build",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "doc-power: docker compose down",
+                      "type":  "shell",
+                      "command":  "wsl",
+                      "args":  [
+                                   "-d",
+                                   "Ubuntu-24.04",
+                                   "-e",
+                                   "bash",
+                                   "-lc",
+                                   "cd /mnt/f/DevSecOps/projects/doc-power-local-k8s \u0026\u0026 docker compose down"
+                               ],
+                      "group":  "build",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "doc-power: docker compose logs (follow)",
+                      "type":  "shell",
+                      "command":  "wsl",
+                      "args":  [
+                                   "-d",
+                                   "Ubuntu-24.04",
+                                   "-e",
+                                   "bash",
+                                   "-lc",
+                                   "cd /mnt/f/DevSecOps/projects/doc-power-local-k8s \u0026\u0026 docker compose logs -f"
+                               ],
+                      "isBackground":  true,
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "dedicated"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "agent-class: npm run list (WSL)",
+                      "type":  "shell",
+                      "command":  "wsl",
+                      "args":  [
+                                   "-d",
+                                   "Ubuntu-24.04",
+                                   "-e",
+                                   "bash",
+                                   "-lc",
+                                   "cd /mnt/f/ai-workspace/lib/agent-class \u0026\u0026 npm run list"
+                               ],
+                      "group":  "test",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "agent-class: npm run list (PowerShell)",
+                      "type":  "shell",
+                      "command":  "npm run list",
+                      "options":  {
+                                      "cwd":  "${workspaceFolder}/lib/agent-class"
+                                  },
+                      "group":  "test",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "agent-class: pm dry-run (doc-power, WSL)",
+                      "type":  "shell",
+                      "command":  "wsl",
+                      "args":  [
+                                   "-d",
+                                   "Ubuntu-24.04",
+                                   "-e",
+                                   "bash",
+                                   "-lc",
+                                   "cd /mnt/f/ai-workspace/lib/agent-class \u0026\u0026 npm run pm -- doc-power --dry-run \"Review backlog for P0 blockers\""
+                               ],
+                      "group":  "test",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "agent-class: pm dry-run (doc-power, PowerShell)",
+                      "type":  "shell",
+                      "command":  "npm run pm -- doc-power --dry-run \"Review backlog for P0 blockers\"",
+                      "options":  {
+                                      "cwd":  "${workspaceFolder}/lib/agent-class"
+                                  },
+                      "group":  "test",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "gh: auth status (WSL)",
+                      "type":  "shell",
+                      "command":  "wsl",
+                      "args":  [
+                                   "-d",
+                                   "Ubuntu-24.04",
+                                   "-e",
+                                   "bash",
+                                   "-lc",
+                                   "gh auth status; git config user.name; git config user.email"
+                               ],
+                      "group":  "none",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "gh: auth status (PowerShell)",
+                      "type":  "shell",
+                      "command":  "gh auth status; git config user.name; git config user.email",
+                      "group":  "none",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "shared"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
+                      "label":  "Auto-push all repos (WSL)",
+                      "problemMatcher":  [
+
+                                         ],
+                      "command":  "wsl",
+                      "type":  "shell",
+                      "args":  [
+                                   "-d",
+                                   "Ubuntu-24.04",
+                                   "-e",
+                                   "bash",
+                                   "-lc",
+                                   "bash /mnt/f/ai-workspace/scripts/auto-push.sh"
+                               ],
+                      "presentation":  {
+                                           "panel":  "shared",
+                                           "reveal":  "always"
+                                       },
+                      "group":  "none"
+                  },
+                  {
+                      "label":  "Auto-push all repos (PowerShell)",
+                      "problemMatcher":  [
+
+                                         ],
+                      "command":  "powershell",
+                      "type":  "shell",
+                      "args":  [
+                                   "-NoProfile",
+                                   "-ExecutionPolicy",
+                                   "Bypass",
+                                   "-File",
+                                   "F:\\ai-workspace\\scripts\\auto-push.ps1"
+                               ],
+                      "presentation":  {
+                                           "panel":  "shared",
+                                           "reveal":  "always"
+                                       },
+                      "group":  "none"
+                  }
+              ]
 }
