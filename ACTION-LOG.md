@@ -30,6 +30,115 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+### 2026-08-28 — Brain phone channel autonomous setup
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (autonomous subagent) |
+| **Action** | Registered BrainNightlyConsolidate schtask (04:10 local ≈01:10 UTC IDT), added nightly log, updated knowledge-graph + RESUME, drafted hourly dispatcher automation |
+| **Target** | `C:\Users\oren\.claude\brain\` |
+| **Result** | success |
+| **Next step** | Oren: subscribe ntfy topic; drop Gemini Takeout under `imports/takeout/{account}/` |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Phone Link read-only capture wired
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent) |
+| **Action** | Verified Phone Link paired (Samsung S23 Android 16); added brain-phonelink-capture.ps1 + phonelink-lib UI automation; updated PHONE-SETUP.md, phone-config phonelink.enabled, agents.json note |
+| **Target** | C:\Users\oren\.claude\brain\ |
+| **Result** | success — 20 conversation previews captured, dedup OK; ntfy notify test sent |
+| **Next step** | Run capture manually with `-LaunchApp`; prefer ntfy for inbound commands |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
 ### 2026-08-28 — Git for Windows: stuck commits / background sync
 
 | Field | Value |
@@ -463,3 +572,13 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 - [WSL-MANAGEMENT.md](./docs/WSL-MANAGEMENT.md) — WSL paths, gh, docker, gcloud
 - [README.md](./README.md) — ai-workspace overview
 - Architecture: `F:\_archive\_inventory\agent-company-architecture-2026-08-28.md`
+
+### 2026-08-28 — Git hang auto-fix (cursor-agent)
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent |
+| **Action** | Killed 5 zombie git (>37m idle); global/local git perf config; workspace git UI limits; sync-gh-auth + hooks + background worker; logs in `logs/auto-fix-2026-08-28.md` |
+| **Target** | F:\ ai-workspace, doc-power-local-k8s, fun4kids |
+| **Result** | partial — CLI status 0.58s, fetch 3.95s; IDE reload recommended |
+| **Next step** | Reload Cursor workspace; monitor Source Control |

@@ -234,3 +234,12 @@ See [ACTION-LOG](../ACTION-LOG.md) for entry template and convention.
 ## Auto-push to GitHub
 
 See [AUTO-PUSH.md](./AUTO-PUSH.md) for GH_TOKEN, hooks, scheduled tasks, and repo list.
+
+## Git UI hang mitigation (Windows)
+
+If Source Control spins or `git` CLI was slow on F: drive:
+
+- Open **`ai-workspace.code-workspace`** (settings include `git.autorefresh: false`, `git.maxConcurrentProcesses: 2`).
+- Reload the window after changes.
+- Avoid full-drive recursive scans for locks; use known repo `.git/index.lock` paths only.
+- See `logs/git-diagnosis-2026-08-28.md`.
