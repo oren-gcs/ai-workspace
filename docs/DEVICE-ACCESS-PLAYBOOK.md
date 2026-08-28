@@ -1,4 +1,4 @@
-# Device Access Playbook
+﻿# Device Access Playbook
 
 **Purpose:** Operational reference for resolving device, app, and access blockers across the F: drive portfolio. Mirrors the global Cursor skill `device-access-resolver`.
 
@@ -220,6 +220,10 @@ Symptoms: `git status` or `git fetch` hangs; commit waits on post-commit; many i
 4. Reinstall hooks: `install-auto-push-hooks.ps1`.
 
 If `lib64/` warnings appear on `F:\`, treat as WSL junction noise; use `git status -uno` when you only care about the parent repo.
+
+**Cursor deploy-on-aws hook leak (2026-08-28):** PostToolUse `validate-drawio.sh` can leave hundreds of `bash.exe` processes blocked on `cat` (stdin never closed). Symptom: machine-wide slowness and Cursor/VS Code Git spinner. Fix: `scripts/cleanup-stuck-git-bash.ps1`; disable the deploy-on-aws hook if the count returns.
+
+**Phantom gitlinks in ai-workspace:** Junction paths under `projects/*/local/` were indexed as submodule gitlinks without `.gitmodules`, breaking `git submodule status` and IDE Git. Fix: remove from index and ignore in `.gitignore` (junctions stay on disk).
 **Cursor deploy-on-aws hook leak (2026-08-28):** The `validate-drawio.sh` PostToolUse hook can leave hundreds of `bash.exe` processes blocked on `cat` (stdin never closed). Symptom: machine-wide slowness, Cursor/VS Code Git spinner, unrelated `git` commands slow. Check: `Get-CimInstance Win32_Process -Filter "Name='bash.exe'" | Where-Object { # Device Access Playbook
 
 **Purpose:** Operational reference for resolving device, app, and access blockers across the F: drive portfolio. Mirrors the global Cursor skill `device-access-resolver`.

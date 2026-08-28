@@ -30,6 +30,28 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-28 — Auto-push partial/failed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: git push failed (exit 128) |
+| **Result** | partial |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push partial/failed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: git push failed (exit 128) |
+| **Result** | partial |
+| **Next step** | none |
+
+
 ### 2026-08-28 — Auto-push completed
 
 | Field | Value |
@@ -582,3 +604,14 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Target** | F:\ ai-workspace, doc-power-local-k8s, fun4kids |
 | **Result** | partial — CLI status 0.58s, fetch 3.95s; IDE reload recommended |
 | **Next step** | Reload Cursor workspace; monitor Source Control |
+
+### 2026-08-28 — Git stuck: deploy-on-aws bash leak + phantom gitlinks
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent |
+| **Action** | Live diagnosis; killed 128 hung validate-drawio bash; cleanup-stuck-git-bash.ps1; removed projects/*/local gitlinks; playbook + skill update |
+| **Target** | LEGION-LAP, F:\ai-workspace |
+| **Result** | success — report logs/git-diagnosis-2026-08-28.md; git submodule status clean; status -uno ~460ms |
+| **Next step** | gh auth login in interactive shell; disable deploy-on-aws hook if bash count returns; run cleanup script periodically |
+

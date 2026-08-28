@@ -26,3 +26,12 @@ logs/grok-bot/
 projects/grok-social-bot/local/.env
 projects/grok-social-bot/local/node_modules/
 projects/grok-social-bot/local/dist/
+
+# Junction to canonical doc-power repo (do not track as submodule)
+projects/doc-power/local/
+
+
+# Winner-repo junctions (not submodules — no .gitmodules)
+projects/fun4kids/local/
+projects/gcs-tech/local/
+projects/my-study-portal/local/
