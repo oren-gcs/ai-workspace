@@ -1,0 +1,50 @@
+project: fun4kids / Bokeriko
+slug: fun4kids
+localPath: F:\fun4kids
+charter: Hebrew RTL kids routine tablet app. Firebase + Capacitor + Cloud Run. PM drives dirty-tree commit, store readiness, and family monetization.
+
+roles:
+  ProjectManager:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Prioritize 18-file dirty tree review and push to origin/main.
+      Track Firebase Auth, Gemini Live, and app store milestones.
+
+  Developer:
+    skill: fun4kids-firebase
+    skillPath: C:\Users\oren\.cursor\skills\fun4kids-firebase\SKILL.md
+    mcpServers: [filesystem, ollama]
+    instructions: React + Capacitor features. Hebrew RTL. Never commit Firebase keys.
+
+  DevOps:
+    skill: fun4kids-firebase
+    mcpServers: [filesystem]
+    instructions: Firebase hosting, Cloud Run deploy, docker-compose for local backend.
+
+  QA:
+    skill: fun4kids-firebase
+    mcpServers: [filesystem]
+    instructions: Run vitest/e2e. Test ephemeral Gemini flows.
+
+  SecurityAuditor:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Firebase rules, API key exposure, Cloud Run IAM.
+
+  LearningCoach:
+    skill: fun4kids-firebase
+    mcpServers: [brain]
+    instructions: Gemini Live API learning; document patterns for study portal.
+
+mcp:
+  registry: F:\ai-workspace\mcp\registry.json
+  allowedPaths:
+    - F:\fun4kids
+
+monetization:
+  primary: Family app — premium routines, subscriptions
+  nextMilestone: Commit dirty tree, Firebase production config
+  googleServices: [firebase, cloud-run, ai-studio]

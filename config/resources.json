@@ -1,0 +1,71 @@
+{
+  "$schema": "device resource map for agent scheduling",
+  "machine": "legion-lap",
+  "drive": "F:",
+  "paths": {
+    "orchestrationRoot": "F:\\ai-workspace",
+    "brain": "C:\\Users\\oren\\.claude\\brain",
+    "archive": "F:\\_archive",
+    "ollamaMcp": "C:\\Users\\oren\\ollama-mcp",
+    "securityCenter": "C:\\Users\\oren\\cowork\\SecurityCenter",
+    "dockerDataTarget": "F:\\DockerData",
+    "ollamaModelsTarget": "F:\\Ollama\\models"
+  },
+  "ports": {
+    "ollama": 11434,
+    "ollamaMcp": 11435,
+    "doc-power": {
+      "frontend": 3000,
+      "postgres": 5432,
+      "services": "8000-8008",
+      "note": "Bind to 127.0.0.1 — open loop"
+    },
+    "fun4kids": {
+      "vite": 5173,
+      "server": 3000,
+      "docker": 8080
+    },
+    "my-study-portal": {
+      "app": 3007,
+      "bridge": 8088,
+      "ml": 8000
+    },
+    "gcs-tech": {
+      "vite": 3000
+    },
+    "cka-ai-bootcamp": {
+      "bridge": 8088
+    },
+    "ai-workspace-emulators": {
+      "fakeGcs": 4443,
+      "wiremock": 8080
+    }
+  },
+  "scheduledTasks": {
+    "brainDispatcher": {
+      "cowork": "brain-execution-dispatcher-legion-lap",
+      "cursorEquivalent": "Cursor Automation hourly + brain-dispatcher skill"
+    },
+    "dailyItHealth": {
+      "cowork": "daily-it-health-alert-legion-lap",
+      "cursorEquivalent": "Cursor Automation + alert-thresholds.ps1"
+    },
+    "dailySecurityReview": {
+      "cowork": "daily-security-scan-review",
+      "cursorEquivalent": "Cursor Automation + security-scan-review skill"
+    },
+    "securityCenterWatch": {
+      "type": "windows-schtasks",
+      "keepLocal": true
+    }
+  },
+  "diskPressure": {
+    "dockerVhdxOnC": "~122 GB",
+    "ollamaModelsOnC": "~52 GB",
+    "pytorchCudaImage": "~35.9 GB"
+  },
+  "wsl": {
+    "distros": 2,
+    "vmmemBalloon": "5-12 GB open loop"
+  }
+}

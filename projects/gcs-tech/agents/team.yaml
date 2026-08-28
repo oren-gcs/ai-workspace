@@ -1,0 +1,51 @@
+project: GCS-tech DevOps Insight Dashboard
+slug: gcs-tech
+localPath: F:\DevSecOps\projects\GCS-tech
+charter: DevSecOps insight dashboard for consulting and product revenue. PM drives 10-file dirty commit and CorDev K8s overlap.
+
+roles:
+  ProjectManager:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Review 10 dirty files. Align with Gcs-CorDev for K8s demos.
+      Position dashboard for GCS-tech consulting engagements.
+
+  Developer:
+    skill: gcs-tech-cordev
+    skillPath: C:\Users\oren\.cursor\skills\gcs-tech-cordev\SKILL.md
+    mcpServers: [filesystem, ollama]
+    instructions: React dashboard, vite dev on :3000. devops-insight-dashboard package.
+
+  DevOps:
+    skill: gcs-tech-cordev
+    mcpServers: [filesystem]
+    instructions: Deploy patterns, overlap with Gcs-CorDev Local K8s insights-orchestrator.
+
+  QA:
+    skill: gcs-tech-cordev
+    mcpServers: [filesystem]
+    instructions: Component tests, dashboard data fixtures.
+
+  SecurityAuditor:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: API keys in constants.ts, GCP credential handling.
+
+  LearningCoach:
+    skill: gcs-tech-cordev
+    mcpServers: [brain]
+    instructions: DevOps metrics learning; demo narratives for sales.
+
+mcp:
+  registry: F:\ai-workspace\mcp\registry.json
+  allowedPaths:
+    - F:\DevSecOps\projects\GCS-tech
+    - F:\DevSecOps\projects\Gcs-CorDev
+
+monetization:
+  primary: DevSecOps consulting + dashboard SaaS
+  gitRemote: https://github.com/oren-gcs/devappinsight.git
+  dirtyFiles: 10

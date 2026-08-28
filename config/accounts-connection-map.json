@@ -1,0 +1,75 @@
+﻿{
+  "$comment": "Draft for future multi-account orchestration. No secrets.",
+  "version": "2026-08-28",
+  "primaryIdentity": {
+    "email": "oren@gcs-tech.org",
+    "github": "oren-gcs",
+    "gcloudConfiguration": "default"
+  },
+  "connections": [
+    {
+      "appId": "fun4kids",
+      "localPath": "F:\\fun4kids",
+      "github": { "org": "oren-gcs", "repo": "fun4kids", "remoteStatus": "configured" },
+      "google": {
+        "gcpProjectId": "gen-lang-client-0475395687",
+        "firebaseProjectId": "gen-lang-client-0475395687",
+        "cloudRun": [{ "service": "bokeriko", "region": "me-west1" }],
+        "firebaseHostingTarget": "bokeriko-kids"
+      },
+      "authHooks": ["gcloud", "firebase", "gh"],
+      "status": "gcloud_ok_firebase_cli_expired_gh_logged_out"
+    },
+    {
+      "appId": "my_study_portal",
+      "localPath": "F:\\DevSecOps\\projects\\my_study_portal",
+      "github": { "org": "oren-gcs", "repo": "my_study_portal", "remoteStatus": "configured" },
+      "google": { "gcpProjectId": "gen-lang-client-0313437995" },
+      "authHooks": ["gcloud", "gh"],
+      "status": "partial"
+    },
+    {
+      "appId": "gcs-tech-insight",
+      "localPath": "F:\\DevSecOps\\projects\\GCS-tech",
+      "github": { "org": "oren-gcs", "repo": "devappinsight", "remoteStatus": "configured" },
+      "google": { "gcpProjectId": "gen-lang-client-0272338825" },
+      "aws": { "accountHint": "095198032894", "profile": "default", "notes": "easy-run integrated examples" },
+      "authHooks": ["gcloud", "aws", "gh"],
+      "status": "partial"
+    },
+    {
+      "appId": "doc-power",
+      "localPath": "F:\\DevSecOps\\projects\\doc-power-local-k8s",
+      "github": { "remoteStatus": "missing_origin" },
+      "runtime": { "type": "docker-compose", "stack": "doc-power-local-k8s" },
+      "google": { "gcpProjectId": null, "notes": "set when cloud deploy chosen" },
+      "aws": { "notes": "doc-power-aws-serverless examples under GCS-tech archives" },
+      "ollama": { "role": "local inference for agents" },
+      "authHooks": ["docker", "gcloud_adc", "aws_optional", "gh"],
+      "status": "local_only"
+    },
+    {
+      "appId": "gcs-cordev",
+      "localPath": "F:\\DevSecOps\\projects\\Gcs-CorDev",
+      "github": { "org": "oren-gcs", "repo": "Gcs-CorDev", "remoteStatus": "configured" },
+      "runtime": { "type": "kind-kubernetes", "cluster": "desktop" },
+      "authHooks": ["docker", "gh"],
+      "status": "local_cluster_running"
+    },
+    {
+      "appId": "easy-run",
+      "localPath": "F:\\DevSecOps\\projects\\GCS-tech\\easyrun-n-insights",
+      "google": { "gcpProjectId": "easy-run-476214" },
+      "aws": { "accountId": "095198032894", "iamUser": "easyrun-ops" },
+      "authHooks": ["aws", "gcloud"],
+      "status": "inventory_blocked"
+    }
+  ],
+  "pendingUserActions": [
+    "gh auth login as oren-gcs",
+    "firebase login --reauth",
+    "gcloud auth application-default login",
+    "Resolve gilboacloud vs oren-gcs in credential manager",
+    "AWS read-only role for cost and resource inventory"
+  ]
+}

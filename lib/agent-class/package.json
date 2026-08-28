@@ -1,0 +1,21 @@
+{
+  "name": "@ai-workspace/agent-class",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "list": "tsx src/cli.ts list",
+    "pm": "tsx src/cli.ts pm",
+    "team": "tsx src/cli.ts team"
+  },
+  "dependencies": {
+    "@cursor/sdk": "^1.0.30",
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

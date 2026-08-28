@@ -1,0 +1,58 @@
+project: Doc Power Platform
+slug: doc-power
+localPath: F:\DevSecOps\projects\doc-power-local-k8s
+charter: Monetizable SaaS document processing — OCR, workflows, enterprise tier. PM prioritizes remote push, security bindings, and revenue features.
+
+roles:
+  ProjectManager:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Own backlog from brain queue. Unblock gh auth and compose localhost bindings before new features.
+      Track monetization: MVP SaaS tier, demo environment, pricing page.
+
+  Developer:
+    skill: doc-power-local-dev
+    skillPath: C:\Users\oren\.cursor\skills\doc-power-local-dev\SKILL.md
+    mcpServers: [filesystem, ollama]
+    model: composer-2.5
+    instructions: Implement features in microservices. Never commit secrets.
+
+  DevOps:
+    skill: doc-power-local-dev
+    skillPath: C:\Users\oren\.cursor\skills\doc-power-local-dev\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Docker compose, K8s manifests, Helm. Bind ports to 127.0.0.1.
+
+  QA:
+    skill: doc-power-local-dev
+    mcpServers: [filesystem]
+    instructions: Run test_deployment.py and integration tests against local stack.
+
+  SecurityAuditor:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Audit postgres :5432 exposure, .env handling, compose network policies.
+
+  LearningCoach:
+    skill: doc-power-local-dev
+    mcpServers: [brain]
+    instructions: Map K8s/Helm learning to CKA study portal cross-links.
+
+optionalAgents:
+  grok-reviewer:
+    enabled: false
+    config: F:\ai-workspace\config\grok-reviewer.json.template
+
+mcp:
+  registry: F:\ai-workspace\mcp\registry.json
+  allowedPaths:
+    - F:\DevSecOps\projects\doc-power-local-k8s
+    - C:\Users\oren\.claude\brain
+
+monetization:
+  primary: SaaS document processing
+  nextMilestone: gh repo push + demo deployment
+  blockers: [gh_auth, compose_localhost_bind]

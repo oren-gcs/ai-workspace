@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "description": "Local MCP servers for agent-company orchestration. Per-project overrides in team.yaml.",
+  "servers": {
+    "ollama": {
+      "transport": "http",
+      "url": "http://127.0.0.1:11435/mcp",
+      "description": "Local Ollama via ollama-mcp bridge. Route bulk work to qwen2.5:3b.",
+      "costTier": "free",
+      "source": "C:\\Users\\oren\\ollama-mcp"
+    },
+    "memory": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {
+        "MEMORY_FILE_PATH": "F:\\ai-workspace\\.memory\\knowledge-graph.json"
+      },
+      "costTier": "free"
+    },
+    "filesystem": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem"],
+      "env": {},
+      "note": "Scope path set per-project in team.yaml allowedPaths"
+    },
+    "sequential-thinking": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "costTier": "free"
+    },
+    "brain": {
+      "transport": "file",
+      "path": "C:\\Users\\oren\\.claude\\brain",
+      "files": ["queue.json", "RESUME.md", "open-loops.json", "knowledge-graph.json"],
+      "note": "Read via agent file tools, not MCP server"
+    }
+  },
+  "future": {
+    "docker": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-docker"],
+      "status": "planned"
+    },
+    "grok-reviewer": {
+      "transport": "http",
+      "configTemplate": "F:\\ai-workspace\\config\\grok-reviewer.json.template",
+      "status": "stub"
+    }
+  }
+}

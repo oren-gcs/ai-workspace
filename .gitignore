@@ -1,0 +1,22 @@
+﻿# Dependencies
+node_modules/
+
+# Secrets and local config (keep *.template and accounts-connection-map.json)
+config/google-accounts.json
+config/grok-reviewer.json
+google-accounts.json
+grok-reviewer.json
+.env
+.env.*
+*.env.local
+!.env.example
+
+# API keys / credentials
+*credentials*
+*.pem
+*.key
+secrets/
+
+# Build / cache
+dist/
+.memory/

@@ -1,0 +1,56 @@
+﻿{
+  "$comment": "Template only — copy to google-accounts.json (gitignored). NO secrets or API keys.",
+  "organization": {
+    "domain": "gcs-tech.org",
+    "gcloudOrganizationId": "739984966511"
+  },
+  "accounts": [
+    {
+      "id": "business-primary",
+      "email": "oren@gcs-tech.org",
+      "type": "workspace+gcp",
+      "gcloudConfiguration": "default",
+      "githubLogin": "oren-gcs",
+      "projects": {
+        "fun4kids-bokeriko": "gen-lang-client-0475395687",
+        "study-portal": "gen-lang-client-0313437995",
+        "devops-insight-tooling": "gen-lang-client-0272338825",
+        "aihub-experiments": "gen-lang-client-0687175189",
+        "offbeat-legacy": "gen-lang-client-0030543022",
+        "easy-run": "easy-run-476214"
+      },
+      "services": ["gcp", "firebase", "cloud-run", "ai-studio", "artifact-registry"],
+      "authStatus": {
+        "gcloudUser": "ok",
+        "gcloudApplicationDefault": "needs_reauth",
+        "firebaseCli": "needs_reauth"
+      },
+      "setupSteps": [
+        "gcloud auth login oren@gcs-tech.org",
+        "gcloud config set project gen-lang-client-0475395687",
+        "gcloud auth application-default login",
+        "firebase login --reauth && firebase use gen-lang-client-0475395687",
+        "gh auth login && gh auth setup-git"
+      ]
+    },
+    {
+      "id": "github-secondary-unverified",
+      "email": null,
+      "type": "github-only",
+      "githubLogin": "gilboacloud",
+      "notes": "Mentioned in brain open-loops; resolve vs oren-gcs before connecting apps",
+      "setupSteps": [
+        "Verify if account still needed",
+        "If retired: remove from Windows Credential Manager and git credential helper"
+      ]
+    }
+  ],
+  "envVarsPerProject": {
+    "doc-power-local-k8s": ["GCP_PROJECT_ID", "GOOGLE_API_KEY", "AWS_REGION", "AWS_ACCESS_KEY_ID"],
+    "fun4kids": ["GOOGLE_API_KEY", "FIREBASE_PROJECT_ID", "VITE_*"],
+    "my_study_portal": ["GOOGLE_API_KEY"],
+    "gcs-tech": ["GCP_PROJECT_ID", "AWS_REGION"]
+  },
+  "dormantProjectCandidates": ["sys-33553560953121705966490937"],
+  "cursorMcpNote": "Google OAuth MCP tools reuse Cursor app login when available; cannot open browser from SDK."
+}

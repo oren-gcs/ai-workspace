@@ -1,0 +1,12 @@
+{
+  "name": "ai-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-agent project orchestration for F: drive portfolio",
+  "scripts": {
+    "list": "npm run list --prefix lib/agent-class",
+    "pm": "npm run pm --prefix lib/agent-class",
+    "team": "npm run team --prefix lib/agent-class",
+    "install:agent-class": "npm install --prefix lib/agent-class"
+  }
+}

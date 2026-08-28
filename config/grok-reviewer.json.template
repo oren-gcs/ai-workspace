@@ -1,0 +1,26 @@
+{
+  "$comment": "Optional Grok reviewer — copy to grok-reviewer.json and set enabled:true. NO API keys in file.",
+  "enabled": false,
+  "provider": "xai",
+  "apiBase": "https://api.x.ai/v1",
+  "model": "grok-3",
+  "role": "SecurityAuditor",
+  "apiKeyEnv": "XAI_API_KEY",
+  "useCases": [
+    "architecture-review",
+    "security-second-opinion",
+    "monetization-brainstorm"
+  ],
+  "rateLimitPerDay": 10,
+  "integration": {
+    "invokeFrom": "ProjectAgent.invokeOptionalReviewer()",
+    "teamYamlKey": "optionalAgents.grok-reviewer",
+    "whenToUse": "High-stakes security or revenue decisions only; default is local Ollama + Cursor"
+  },
+  "setupSteps": [
+    "Create API key at https://console.x.ai/",
+    "setx XAI_API_KEY \"your-key\" (user env, never commit)",
+    "Copy this file to grok-reviewer.json, set enabled: true",
+    "Add grok-reviewer to project team.yaml optionalAgents"
+  ]
+}

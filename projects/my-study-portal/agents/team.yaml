@@ -1,0 +1,51 @@
+project: CKA Study Portal
+slug: my-study-portal
+localPath: F:\DevSecOps\projects\my_study_portal
+charter: Learning platform for CKA exam (Oct 2026) with study tracks, bridge agent, MLOps lab. PM balances cert prep with monetizable courseware.
+
+roles:
+  ProjectManager:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Track CKA exam booking (Oct 23 2026). Merge feat/study-tracks-and-hardening when ready.
+      Coordinate bridge_agent security across my_study_portal and cka-ai-bootcamp.
+
+  Developer:
+    skill: my-study-portal
+    skillPath: C:\Users\oren\.cursor\skills\my-study-portal\SKILL.md
+    mcpServers: [filesystem, ollama]
+    instructions: React + Express + FastAPI ML. Port 3007 for app. Follow study-portal-guardrails rule.
+
+  DevOps:
+    skill: my-study-portal
+    mcpServers: [filesystem]
+    instructions: docker-compose, bridge on :8088, ML service :8000.
+
+  QA:
+    skill: my-study-portal
+    mcpServers: [filesystem]
+    instructions: npm test, vitest, e2e. STUDY_TRACKS compliance.
+
+  SecurityAuditor:
+    skill: my-study-portal
+    mcpServers: [filesystem]
+    instructions: COMMAND_POLICY, bridge auth, server.ts proxy. Audit cka-ai-bootcamp copy.
+
+  LearningCoach:
+    skill: my-study-portal
+    skillPath: C:\Users\oren\.cursor\skills\my-study-portal\SKILL.md
+    mcpServers: [brain]
+    instructions: CKA study nudges, track progress, link to exam objectives.
+
+mcp:
+  registry: F:\ai-workspace\mcp\registry.json
+  allowedPaths:
+    - F:\DevSecOps\projects\my_study_portal
+    - F:\DevSecOps\projects\cka-ai-bootcamp
+
+monetization:
+  primary: CKA/MLOps courseware licensing
+  learning: CKA Oct 2026
+  livePort: 3007
