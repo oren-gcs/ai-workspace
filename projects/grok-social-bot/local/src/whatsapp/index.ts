@@ -1,4 +1,5 @@
 import type { AppConfig } from "../config.js";
+import { getMetaConfigStatus } from "../meta/config-status.js";
 import type { WhatsAppNotifier, WhatsAppSendResult } from "./types.js";
 
 function canSend(config: AppConfig): { allowed: boolean; to: string; reason?: string } {
@@ -19,31 +20,46 @@ export class MetaWhatsAppNotifier implements WhatsAppNotifier {
 
   get isConfigured(): boolean {
     const m = this.config.whatsapp.meta;
-    return Boolean(m.token && m.phoneNumberId);
+    return Boolean(m.accessToken && m.phoneNumberId);
+  }
+
+  /** Human-readable missing fields (no secret values). */
+  getMissingFields(): string[] {
+    return getMetaConfigStatus(this.config).missingRequired;
   }
 
   async sendDigest(body: string): Promise<WhatsAppSendResult> {
     const gate = canSend(this.config);
     if (this.config.runner.dryRun) {
-      return { ok: true, provider: this.provider, skipped: true, reason: "DRY_RUN" };
+      const missing = this.getMissingFields();
+      return {
+        ok: true,
+        provider: this.provider,
+        skipped: true,
+        reason:
+          missing.length > 0
+            ? `DRY_RUN (missing: ${missing.join(", ")})`
+            : "DRY_RUN — would send when ALLOW_OUTBOUND_WHATSAPP=true",
+      };
     }
     if (!gate.allowed) {
       return { ok: false, provider: this.provider, skipped: true, reason: gate.reason };
     }
     if (!this.isConfigured) {
+      const missing = this.getMissingFields();
       return {
         ok: false,
         provider: this.provider,
-        error: "Meta WhatsApp not configured — see docs/WHATSAPP-SETUP.md",
+        error: `Meta WhatsApp not configured — missing: ${missing.join(", ") || "WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID"} — see docs/CONFIG-META-WHATSAPP-FACEBOOK.md`,
       };
     }
 
-    const { token, phoneNumberId } = this.config.whatsapp.meta;
+    const { accessToken, phoneNumberId } = this.config.whatsapp.meta;
     const url = `https://graph.facebook.com/v21.0/${phoneNumberId}/messages`;
     const res = await fetch(url, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

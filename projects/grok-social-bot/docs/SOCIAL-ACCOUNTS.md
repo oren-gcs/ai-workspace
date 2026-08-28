@@ -6,11 +6,31 @@
 
 | Platform | API | Enable flag | Key env vars |
 |----------|-----|-------------|--------------|
+| Facebook Page | Meta Graph API | `ENABLE_FACEBOOK=true` | `FACEBOOK_PAGE_ID`, `FACEBOOK_PAGE_ACCESS_TOKEN`, `META_APP_ID` |
 | X (Twitter) | X API v2 | `ENABLE_TWITTER=true` | `TWITTER_BEARER_TOKEN`, OAuth 1.0a keys |
 | LinkedIn | Marketing / Share API | `ENABLE_LINKEDIN=true` | `LINKEDIN_CLIENT_ID`, `LINKEDIN_ACCESS_TOKEN` |
 | Instagram | Meta Graph API | `ENABLE_INSTAGRAM=true` | `INSTAGRAM_APP_ID`, `INSTAGRAM_ACCESS_TOKEN` |
 
-Implementations live in `local/src/social/` — currently return empty arrays with console warnings.
+Implementations live in `local/src/social/` — Facebook has a Graph API connector; others return empty arrays until OAuth is complete.
+
+---
+
+## Facebook Page (Meta Graph)
+
+Shares the same Meta Developer app as WhatsApp. Full wizard: **[CONFIG-META-WHATSAPP-FACEBOOK.md](CONFIG-META-WHATSAPP-FACEBOOK.md)**.
+
+1. https://developers.facebook.com/ (Chrome work profile `oren@gcs-tech.org`)
+2. Same app as WhatsApp — add Page permissions
+3. Generate Page access token with `pages_read_engagement`
+4. `.env`:
+   ```
+   ENABLE_FACEBOOK=true
+   FACEBOOK_PAGE_ID=
+   FACEBOOK_PAGE_ACCESS_TOKEN=
+   META_APP_ID=
+   ```
+
+Feed + tagged posts: Graph API `/{page-id}/feed` and `/{page-id}/tagged`.
 
 ---
 

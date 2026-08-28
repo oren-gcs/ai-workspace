@@ -28,7 +28,8 @@ Managed agent-company project for a **Grok-powered social monitoring bot** with 
 | Service | Env vars | Doc |
 |---------|----------|-----|
 | xAI Grok | `XAI_API_KEY` | https://console.x.ai/ |
-| WhatsApp (pick one) | Meta or Twilio vars | [docs/WHATSAPP-SETUP.md](docs/WHATSAPP-SETUP.md) |
+| WhatsApp (pick one) | Meta or Twilio vars | [docs/CONFIG-META-WHATSAPP-FACEBOOK.md](docs/CONFIG-META-WHATSAPP-FACEBOOK.md) |
+| Facebook Page | `ENABLE_FACEBOOK`, `FACEBOOK_PAGE_*` | [docs/CONFIG-META-WHATSAPP-FACEBOOK.md](docs/CONFIG-META-WHATSAPP-FACEBOOK.md) |
 | Social (enable per platform) | `TWITTER_*`, `LINKEDIN_*`, etc. | [docs/SOCIAL-ACCOUNTS.md](docs/SOCIAL-ACCOUNTS.md) |
 | Safety | `WHATSAPP_TEST_NUMBER`, `ALLOW_OUTBOUND_WHATSAPP=false` | Required before real sends |
 

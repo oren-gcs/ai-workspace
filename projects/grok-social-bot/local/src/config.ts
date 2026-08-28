@@ -23,7 +23,7 @@ export interface AppConfig {
     testNumber: string;
     allowOutbound: boolean;
     meta: {
-      token: string;
+      accessToken: string;
       phoneNumberId: string;
       businessAccountId: string;
       verifyToken: string;
@@ -36,9 +36,25 @@ export interface AppConfig {
     };
   };
   social: {
+    meta: {
+      appId: string;
+      appSecret: string;
+    };
+    facebook: {
+      enabled: boolean;
+      pageId: string;
+      pageAccessToken: string;
+    };
     twitter: { enabled: boolean; bearerToken: string };
     linkedin: { enabled: boolean; accessToken: string };
     instagram: { enabled: boolean; accessToken: string };
+  };
+  spotify: {
+    enabled: boolean;
+    clientId: string;
+    clientSecret: string;
+    redirectUri: string;
+    refreshToken: string;
   };
 }
 
@@ -53,6 +69,15 @@ function envInt(key: string, fallback: number): number {
   if (!v) return fallback;
   const n = parseInt(v, 10);
   return Number.isFinite(n) ? n : fallback;
+}
+
+/** Read first non-empty env var (supports legacy aliases). */
+function envFirst(...keys: string[]): string {
+  for (const key of keys) {
+    const v = process.env[key];
+    if (v?.trim()) return v.trim();
+  }
+  return "";
 }
 
 export function loadConfig(): AppConfig {
@@ -82,11 +107,14 @@ export function loadConfig(): AppConfig {
       testNumber: process.env.WHATSAPP_TEST_NUMBER ?? "",
       allowOutbound: envBool("ALLOW_OUTBOUND_WHATSAPP", false),
       meta: {
-        token: process.env.META_WHATSAPP_TOKEN ?? "",
-        phoneNumberId: process.env.META_WHATSAPP_PHONE_NUMBER_ID ?? "",
-        businessAccountId: process.env.META_WHATSAPP_BUSINESS_ACCOUNT_ID ?? "",
-        verifyToken: process.env.META_WEBHOOK_VERIFY_TOKEN ?? "",
-        appSecret: process.env.META_APP_SECRET ?? "",
+        accessToken: envFirst("WHATSAPP_ACCESS_TOKEN", "META_WHATSAPP_TOKEN"),
+        phoneNumberId: envFirst("WHATSAPP_PHONE_NUMBER_ID", "META_WHATSAPP_PHONE_NUMBER_ID"),
+        businessAccountId: envFirst(
+          "WHATSAPP_BUSINESS_ACCOUNT_ID",
+          "META_WHATSAPP_BUSINESS_ACCOUNT_ID"
+        ),
+        verifyToken: envFirst("WEBHOOK_VERIFY_TOKEN", "META_WEBHOOK_VERIFY_TOKEN"),
+        appSecret: envFirst("META_APP_SECRET"),
       },
       twilio: {
         accountSid: process.env.TWILIO_ACCOUNT_SID ?? "",
@@ -95,6 +123,15 @@ export function loadConfig(): AppConfig {
       },
     },
     social: {
+      meta: {
+        appId: envFirst("META_APP_ID", "INSTAGRAM_APP_ID"),
+        appSecret: envFirst("META_APP_SECRET", "INSTAGRAM_APP_SECRET"),
+      },
+      facebook: {
+        enabled: envBool("ENABLE_FACEBOOK", false),
+        pageId: process.env.FACEBOOK_PAGE_ID ?? "",
+        pageAccessToken: process.env.FACEBOOK_PAGE_ACCESS_TOKEN ?? "",
+      },
       twitter: {
         enabled: envBool("ENABLE_TWITTER", false),
         bearerToken: process.env.TWITTER_BEARER_TOKEN ?? "",
@@ -108,6 +145,14 @@ export function loadConfig(): AppConfig {
         accessToken: process.env.INSTAGRAM_ACCESS_TOKEN ?? "",
       },
     },
+    spotify: {
+      enabled: envBool("ENABLE_SPOTIFY", false),
+      clientId: process.env.SPOTIFY_CLIENT_ID ?? "",
+      clientSecret: process.env.SPOTIFY_CLIENT_SECRET ?? "",
+      redirectUri:
+        process.env.SPOTIFY_REDIRECT_URI ?? "http://127.0.0.1:3847/auth/spotify/callback",
+      refreshToken: process.env.SPOTIFY_REFRESH_TOKEN ?? "",
+    },
   };
 }
 
@@ -119,10 +164,18 @@ export function validateConfig(config: AppConfig): string[] {
   }
 
   if (config.whatsapp.provider === "none") {
-    issues.push("WHATSAPP_PROVIDER=none — notifications stub only");
+    issues.push("WHATSAPP_PROVIDER=none — notifications stub only (set WHATSAPP_PROVIDER=meta for Facebook/Meta)");
   } else if (config.whatsapp.provider === "meta") {
-    if (!config.whatsapp.meta.token || !config.whatsapp.meta.phoneNumberId) {
-      issues.push("Meta WhatsApp: set META_WHATSAPP_TOKEN and META_WHATSAPP_PHONE_NUMBER_ID");
+    if (!config.whatsapp.meta.accessToken || !config.whatsapp.meta.phoneNumberId) {
+      issues.push(
+        "Meta WhatsApp: set WHATSAPP_ACCESS_TOKEN and WHATSAPP_PHONE_NUMBER_ID (see docs/CONFIG-META-WHATSAPP-FACEBOOK.md)"
+      );
+    }
+    if (!config.social.meta.appId) {
+      issues.push("Meta app: set META_APP_ID from developers.facebook.com");
+    }
+    if (!config.whatsapp.meta.verifyToken) {
+      issues.push("Meta webhook: set WEBHOOK_VERIFY_TOKEN before registering webhook in Meta Console");
     }
   } else if (config.whatsapp.provider === "twilio") {
     if (!config.whatsapp.twilio.accountSid || !config.whatsapp.twilio.authToken) {
@@ -139,9 +192,27 @@ export function validateConfig(config: AppConfig): string[] {
   const anySocial =
     config.social.twitter.enabled ||
     config.social.linkedin.enabled ||
-    config.social.instagram.enabled;
+    config.social.instagram.enabled ||
+    config.social.facebook.enabled ||
+    config.spotify.enabled;
   if (!anySocial) {
-    issues.push("No social platforms enabled — set ENABLE_TWITTER/LINKEDIN/INSTAGRAM after OAuth");
+    issues.push(
+      "No platforms enabled — set ENABLE_FACEBOOK / ENABLE_TWITTER / ENABLE_LINKEDIN / ENABLE_INSTAGRAM / ENABLE_SPOTIFY after OAuth"
+    );
+  }
+
+  if (config.spotify.enabled && !config.spotify.clientId) {
+    issues.push("ENABLE_SPOTIFY=true requires SPOTIFY_CLIENT_ID (see docs/SPOTIFY-SETUP.md)");
+  }
+
+  if (config.spotify.enabled && config.spotify.clientId && !config.spotify.refreshToken) {
+    issues.push(
+      "Spotify: SPOTIFY_REFRESH_TOKEN missing — run scripts/spotify-auth.ps1 and complete OAuth"
+    );
+  }
+
+  if (config.social.facebook.enabled && !config.social.facebook.pageAccessToken) {
+    issues.push("ENABLE_FACEBOOK=true requires FACEBOOK_PAGE_ID and FACEBOOK_PAGE_ACCESS_TOKEN");
   }
 
   return issues;

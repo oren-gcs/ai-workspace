@@ -78,10 +78,21 @@
       "workspacePath": "F:\\ai-workspace\\projects\\grok-social-bot",
       "github": { "org": "oren-gcs", "repo": "ai-workspace", "remoteStatus": "configured", "note": "code under ai-workspace monorepo" },
       "google": { "notes": "optional Meta Business for WhatsApp/Instagram Graph" },
-      "chromeProfile": "work — oren@gcs-tech.org",
-      "authHooks": ["xai", "meta_whatsapp", "twilio", "twitter_oauth", "linkedin_oauth", "gh"],
+      "chromeProfile": "work — oren@gcs-tech.org (Profile 1 or 12)",
+      "meta": {
+        "developerConsole": "https://developers.facebook.com/",
+        "developerAppId": null,
+        "developerAppName": "grok-social-bot",
+        "whatsappPhoneNumberId": null,
+        "whatsappBusinessAccountId": null,
+        "facebookPageId": null,
+        "webhookPath": "/webhook/whatsapp",
+        "localWebhook": "http://127.0.0.1:3847/webhook/whatsapp",
+        "setupWizard": "F:\\ai-workspace\\projects\\grok-social-bot\\docs\\CONFIG-META-WHATSAPP-FACEBOOK.md"
+      },
+      "authHooks": ["xai", "meta_whatsapp", "meta_facebook", "twilio", "twitter_oauth", "linkedin_oauth", "gh"],
       "envTemplate": "F:\\ai-workspace\\projects\\grok-social-bot\\local\\.env.example",
-      "status": "scaffold_no_oauth_no_whatsapp_connected"
+      "status": "meta_scaffold_awaiting_user_oauth_and_tokens"
     }
   ],
   "pendingUserActions": [

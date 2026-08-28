@@ -16,7 +16,7 @@
         {
           "type": "whatsapp_meta",
           "symptoms": ["Meta webhook verify failed", "403 on graph.facebook.com"],
-          "fix": "Match META_WEBHOOK_VERIFY_TOKEN; use ngrok for PUBLIC_WEBHOOK_BASE_URL; see docs/WHATSAPP-SETUP.md"
+          "fix": "Match WEBHOOK_VERIFY_TOKEN; use ngrok for PUBLIC_WEBHOOK_BASE_URL; run scripts/setup-meta-webhook.ps1; see docs/CONFIG-META-WHATSAPP-FACEBOOK.md"
         },
         {
           "type": "whatsapp_twilio",
@@ -36,6 +36,7 @@
       ],
       "chromeProfile": "work — oren@gcs-tech.org",
       "docs": [
+        "F:\\ai-workspace\\projects\\grok-social-bot\\docs\\CONFIG-META-WHATSAPP-FACEBOOK.md",
         "F:\\ai-workspace\\projects\\grok-social-bot\\docs\\WHATSAPP-SETUP.md",
         "F:\\ai-workspace\\projects\\grok-social-bot\\docs\\SOCIAL-ACCOUNTS.md"
       ]

@@ -1,7 +1,9 @@
 import type { AppConfig } from "../config.js";
+import { FacebookConnector } from "./facebook.js";
 import type { SocialConnector, SocialMention } from "./types.js";
 import { formatMention } from "./types.js";
 
+export { FacebookConnector };
 export { formatMention };
 export type { SocialConnector, SocialMention };
 
@@ -63,6 +65,7 @@ export class InstagramConnector implements SocialConnector {
 
 export function createSocialConnectors(config: AppConfig): SocialConnector[] {
   return [
+    new FacebookConnector(config.social.facebook, config.social.meta.appId),
     new TwitterConnector(config.social.twitter),
     new LinkedInConnector(config.social.linkedin),
     new InstagramConnector(config.social.instagram),

@@ -218,6 +218,29 @@
                                          ]
                   },
                   {
+                      "label":  "Configure Meta WhatsApp (dry-run test)",
+                      "type":  "shell",
+                      "command":  "powershell",
+                      "args":  [
+                                   "-NoProfile",
+                                   "-ExecutionPolicy",
+                                   "Bypass",
+                                   "-Command",
+                                   "if (-not (Test-Path 'F:\\ai-workspace\\projects\\grok-social-bot\\local\\.env')) { Copy-Item 'F:\\ai-workspace\\projects\\grok-social-bot\\local\\.env.example' 'F:\\ai-workspace\\projects\\grok-social-bot\\local\\.env' }; & 'F:\\ai-workspace\\projects\\grok-social-bot\\scripts\\setup-meta-webhook.ps1'; Push-Location 'F:\\ai-workspace\\projects\\grok-social-bot\\local'; npm run dry-run; Pop-Location"
+                               ],
+                      "options":  {
+                                      "cwd":  "${workspaceFolder}"
+                                  },
+                      "group":  "test",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "dedicated"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
                       "label":  "Auto-push all repos (PowerShell)",
                       "problemMatcher":  [
 

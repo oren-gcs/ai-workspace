@@ -2,18 +2,43 @@
 
 **Honest status:** WhatsApp is **not connected** until you complete one of the flows below and set env vars in `local/.env`. The bot defaults to `DRY_RUN=true` and `ALLOW_OUTBOUND_WHATSAPP=false`.
 
+## Primary path — Meta / Facebook (recommended)
+
+For unified Meta setup (WhatsApp + Facebook Page), follow the full wizard:
+
+**[CONFIG-META-WHATSAPP-FACEBOOK.md](CONFIG-META-WHATSAPP-FACEBOOK.md)**
+
+Quick env vars:
+```
+WHATSAPP_PROVIDER=meta
+META_APP_ID=
+META_APP_SECRET=
+WHATSAPP_ACCESS_TOKEN=
+WHATSAPP_PHONE_NUMBER_ID=
+WHATSAPP_BUSINESS_ACCOUNT_ID=
+WEBHOOK_VERIFY_TOKEN=
+WHATSAPP_TEST_NUMBER=+1...
+```
+
+Webhook helper:
+```powershell
+powershell -File F:\ai-workspace\projects\grok-social-bot\scripts\setup-meta-webhook.ps1
+```
+
+---
+
 ## Choose a provider
 
 | Provider | Best for | Env prefix |
 |----------|----------|------------|
+| **Meta Cloud API** | Production, Facebook/Meta Business | `META_*`, `WHATSAPP_*` |
 | **Twilio sandbox** | Local dev, fastest first message | `TWILIO_*` |
-| **Meta Cloud API** | Production, your Business number | `META_*` |
 
-Set `WHATSAPP_PROVIDER=twilio` or `WHATSAPP_PROVIDER=meta`.
+Set `WHATSAPP_PROVIDER=meta` or `WHATSAPP_PROVIDER=twilio`.
 
 ---
 
-## Option A — Twilio WhatsApp Sandbox (recommended for dev)
+## Option A — Twilio WhatsApp Sandbox (dev alternative)
 
 1. Create account: https://www.twilio.com/try-twilio
 2. Console → **Messaging** → **Try it out** → **Send a WhatsApp message**
@@ -38,35 +63,13 @@ Docs: https://www.twilio.com/docs/whatsapp/sandbox
 
 ## Option B — Meta WhatsApp Business Cloud API
 
-### Prerequisites
-
-- Meta Business account
-- Facebook Developer app with **WhatsApp** product added
-- Verified business (for production; test numbers available in dev mode)
-
-### Steps
-
-1. https://developers.facebook.com/ → Create app → Business → Add **WhatsApp**
-2. **API Setup** → copy **Phone number ID** and generate **temporary access token** (or system user token for prod)
-3. Set `.env`:
-   ```
-   WHATSAPP_PROVIDER=meta
-   META_WHATSAPP_TOKEN=EAA...
-   META_WHATSAPP_PHONE_NUMBER_ID=...
-   META_WHATSAPP_BUSINESS_ACCOUNT_ID=...
-   META_WEBHOOK_VERIFY_TOKEN=<random-string-you-choose>
-   META_APP_SECRET=...
-   ```
-4. **Webhook** (incoming messages):
-   - Callback URL: `https://<public-host>/webhook/whatsapp`
-   - Verify token: same as `META_WEBHOOK_VERIFY_TOKEN`
-   - Subscribe to `messages` field
+See **[CONFIG-META-WHATSAPP-FACEBOOK.md](CONFIG-META-WHATSAPP-FACEBOOK.md)** for the full numbered wizard.
 
 ### Local webhook (127.0.0.1)
 
 Meta cannot reach `127.0.0.1`. For local dev:
 
-1. Run bot: `npm start` (binds `BOT_HOST=127.0.0.1`, `BOT_PORT=3847`)
+1. Run bot: `npm run dry-run` (binds `BOT_HOST=127.0.0.1`, `BOT_PORT=3847`)
 2. Tunnel: `ngrok http 3847` (or Cloudflare Tunnel)
 3. Set `PUBLIC_WEBHOOK_BASE_URL=https://xxxx.ngrok-free.app`
 4. Register webhook in Meta: `https://xxxx.ngrok-free.app/webhook/whatsapp`
@@ -77,6 +80,13 @@ The bot answers Meta's `hub.challenge` GET verification on that path.
 
 - **Test numbers:** Meta Developer Console → WhatsApp → API Setup → add recipient phone (SMS/voice OTP)
 - **Production:** Register a dedicated WhatsApp Business number through Meta Business Manager
+
+### Legacy env aliases
+
+These still work if canonical vars are empty:
+- `META_WHATSAPP_TOKEN` → `WHATSAPP_ACCESS_TOKEN`
+- `META_WHATSAPP_PHONE_NUMBER_ID` → `WHATSAPP_PHONE_NUMBER_ID`
+- `META_WEBHOOK_VERIFY_TOKEN` → `WEBHOOK_VERIFY_TOKEN`
 
 ---
 

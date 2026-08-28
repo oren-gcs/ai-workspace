@@ -1,5 +1,6 @@
 import http from "node:http";
 import { loadConfig, validateConfig } from "./config.js";
+import { formatMetaConfigStatus, getMetaConfigStatus } from "./meta/config-status.js";
 import { BotScheduler } from "./scheduler.js";
 
 function startWebhookServer(
@@ -63,6 +64,21 @@ async function main(): Promise<void> {
   console.log("Status: scaffold — connections require user OAuth/API setup");
   for (const issue of issues) {
     console.log(`  • ${issue}`);
+  }
+
+  const metaStatus = getMetaConfigStatus(config);
+  for (const line of formatMetaConfigStatus(metaStatus)) {
+    console.log(line);
+  }
+
+  if (config.server.publicWebhookBaseUrl) {
+    console.log(
+      `Meta webhook URL: ${config.server.publicWebhookBaseUrl.replace(/\/$/, "")}${config.server.webhookPath}`
+    );
+  } else if (config.whatsapp.provider === "meta") {
+    console.log(
+      `Local webhook (tunnel required): http://${config.server.host}:${config.server.port}${config.server.webhookPath}`
+    );
   }
 
   const server = startWebhookServer(
