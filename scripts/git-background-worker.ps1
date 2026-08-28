@@ -31,6 +31,11 @@ try {
         exit 1
     }
     $repos = @(Get-Content -Raw $ConfigPath | ConvertFrom-Json).repos
+    $cleanupScript = Join-Path $PSScriptRoot "cleanup-stuck-git-bash.ps1"
+    if (Test-Path $cleanupScript) {
+        $cleanupLine = (& $cleanupScript 2>&1 | Out-String).Trim() -replace "`r?`n", " "
+        if ($cleanupLine) { Write-WorkerLog "bash-cleanup: $cleanupLine" }
+    }
     Write-WorkerLog "Start ($($repos.Count) repos, timeout ${PerRepoTimeoutSec}s)"
 
     $sync = Join-Path $PSScriptRoot "sync-gh-auth.ps1"

@@ -114,3 +114,14 @@ Worker log `worker-20260828-150006.log`: doc-power + ai-workspace **ok** (~25s t
 | Background worker | **Yes** — logs OK |
 | GCM/oauth git config | **Yes** — present |
 | **User still stuck** | **Different root cause:** plugin bash leak + phantom gitlinks (+ optional gh auth in agent shell) |
+
+## 13. Follow-up (f09716b0 subagent)
+
+| Item | Result |
+|------|--------|
+| Push `cdf7506` | Already on `origin/master` (ahead 0 after fetch) |
+| Hook disabled | `C:\Users\oren\.cursor\plugins\cache\cursor-public\deploy-on-aws\7a17df718d26f07414b876e77a7480fa25089b08\hooks\hooks.json` — `PostToolUse` validate-drawio emptied; backup `hooks.json.disabled-validate-drawio-2026-08-28.bak` |
+| Worker | `git-background-worker.ps1` now runs `cleanup-stuck-git-bash.ps1` each cycle |
+| bash.exe count | 2 total, 0 validate-drawio (post-check) |
+
+Restore hook: copy `hooks.json.disabled-validate-drawio-2026-08-28.bak` over `hooks.json` after plugin fix or uninstall deploy-on-aws.

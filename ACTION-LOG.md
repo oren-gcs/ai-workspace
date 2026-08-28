@@ -30,6 +30,39 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-28 — Git diagnosis follow-up f09716b0
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent) |
+| **Action** | Verified push cdf7506 on origin/master; disabled deploy-on-aws validate-drawio PostToolUse hook; wired cleanup into git-background-worker |
+| **Target** | ai-workspace; Cursor plugin deploy-on-aws hooks |
+| **Result** | success (commit already remote; hook disabled; bash 2/0 validate-drawio) |
+| **Next step** | Reload Cursor window; re-enable hook only after plugin ships stdin fix |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
 ### 2026-08-28 — Auto-push partial/failed
 
 | Field | Value |
