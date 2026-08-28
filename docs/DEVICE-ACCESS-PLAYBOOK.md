@@ -222,6 +222,12 @@ PM agents run device-access-resolver before declaring P0 blockers.
 
 ---
 
+## Per-project patterns file
+
+Structured blocker hints: `F:\ai-workspace\config\device-access-patterns.json` (e.g. `grok-social-bot` for xAI, Meta/Twilio WhatsApp, social OAuth).
+
+---
+
 ## Related docs
 
 - [AUTO-PUSH.md](./AUTO-PUSH.md)

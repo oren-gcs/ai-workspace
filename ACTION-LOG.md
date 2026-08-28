@@ -30,6 +30,16 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-28 — Grok social bot project scaffold
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent |
+| **Action** | Scaffolded grok-social-bot agent company project, TypeScript runner, WhatsApp/social docs, start-grok-bot-session.ps1, manifest updates |
+| **Target** | `F:\ai-workspace\projects\grok-social-bot`, `config/device-access-patterns.json`, `project-agents-manifest.json` |
+| **Result** | success — no live OAuth/WhatsApp; stubs only |
+| **Next step** | User sets XAI_API_KEY, picks WhatsApp provider, completes social OAuth per docs |
+
 ### 2026-08-28 — GitHub push via GCM + sync-gh-auth repair
 
 | Field | Value |

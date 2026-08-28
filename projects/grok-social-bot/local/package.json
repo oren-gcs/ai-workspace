@@ -1,0 +1,24 @@
+{
+  "name": "@ai-workspace/grok-social-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Grok-powered social mention monitor with WhatsApp digest notifications (scaffold)",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "dry-run": "tsx src/index.ts --dry-run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

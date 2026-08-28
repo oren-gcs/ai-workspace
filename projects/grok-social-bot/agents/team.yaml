@@ -1,0 +1,59 @@
+project: Grok Social Bot
+slug: grok-social-bot
+localPath: F:\ai-workspace\projects\grok-social-bot\local
+skills: [device-access-resolver, security-scan-review]
+charter: Grok-powered social mention monitor with WhatsApp digests. Scaffold only until user completes OAuth and API keys.
+
+roles:
+  ProjectManager:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Drive setup checklist: XAI_API_KEY, WhatsApp provider, social OAuth per platform.
+      Start session via start-grok-bot-session.ps1 or VS Code task.
+      Monetization: social listening alerts, brand monitoring, affiliate mention tracking.
+
+  GrokOperator:
+    skill: security-scan-review
+    mcpServers: [filesystem]
+    instructions: |
+      Own Grok chat/completions wrapper. Respect rateLimitPerDay from grok-reviewer template.
+      Summarize mentions into concise WhatsApp-friendly digests.
+
+  SocialConnector:
+    skill: device-access-resolver
+    mcpServers: [filesystem]
+    instructions: |
+      Implement SocialConnector interface per platform user enables.
+      OAuth in Chrome profile mapped to oren@gcs-tech.org (work lane). Never store tokens in repo.
+
+  WhatsAppNotifier:
+    skill: device-access-resolver
+    mcpServers: [filesystem]
+    instructions: |
+      Meta Cloud API or Twilio WhatsApp. Require ALLOW_OUTBOUND_WHATSAPP + WHATSAPP_TEST_NUMBER for sends.
+      Webhook on 127.0.0.1 for local dev; ngrok for Meta verification.
+
+  SecurityAuditor:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: |
+      Webhook HMAC secrets, bind 127.0.0.1, env-only secrets, optional grok-reviewer for high-stakes decisions.
+
+optionalAgents:
+  grok-reviewer:
+    configTemplate: F:\ai-workspace\config\grok-reviewer.json.template
+    apiKeyEnv: XAI_API_KEY
+    whenToUse: Architecture or revenue decisions beyond daily digests
+
+mcp:
+  registry: F:\ai-workspace\mcp\registry.json
+  allowedPaths:
+    - F:\ai-workspace\projects\grok-social-bot
+
+monetization:
+  primary: Social listening / mention alerts via WhatsApp
+  nextMilestone: XAI_API_KEY + Twilio sandbox test digest
+  apis: [xai-grok, meta-whatsapp, twilio-whatsapp, twitter-x, linkedin, instagram-graph]

@@ -194,6 +194,30 @@
                       "group":  "none"
                   },
                   {
+                      "label":  "Start Grok social bot session",
+                      "type":  "shell",
+                      "command":  "powershell",
+                      "args":  [
+                                   "-NoProfile",
+                                   "-ExecutionPolicy",
+                                   "Bypass",
+                                   "-File",
+                                   "F:\\ai-workspace\\scripts\\start-grok-bot-session.ps1",
+                                   "-Foreground"
+                               ],
+                      "options":  {
+                                      "cwd":  "${workspaceFolder}"
+                                  },
+                      "group":  "none",
+                      "presentation":  {
+                                           "reveal":  "always",
+                                           "panel":  "dedicated"
+                                       },
+                      "problemMatcher":  [
+
+                                         ]
+                  },
+                  {
                       "label":  "Auto-push all repos (PowerShell)",
                       "problemMatcher":  [
 

@@ -1,0 +1,44 @@
+{
+  "$comment": "Device-access patterns by project — no secrets. Extend when new blocker types appear.",
+  "version": "2026-08-28",
+  "patterns": {
+    "grok-social-bot": {
+      "projectPath": "F:\\ai-workspace\\projects\\grok-social-bot",
+      "localPath": "F:\\ai-workspace\\projects\\grok-social-bot\\local",
+      "sessionScript": "F:\\ai-workspace\\scripts\\start-grok-bot-session.ps1",
+      "logDir": "F:\\ai-workspace\\logs\\grok-bot",
+      "blockers": [
+        {
+          "type": "xai_api",
+          "symptoms": ["401 from api.x.ai", "XAI_API_KEY missing"],
+          "fix": "Create key at https://console.x.ai/ → setx XAI_API_KEY (user env) or local/.env"
+        },
+        {
+          "type": "whatsapp_meta",
+          "symptoms": ["Meta webhook verify failed", "403 on graph.facebook.com"],
+          "fix": "Match META_WEBHOOK_VERIFY_TOKEN; use ngrok for PUBLIC_WEBHOOK_BASE_URL; see docs/WHATSAPP-SETUP.md"
+        },
+        {
+          "type": "whatsapp_twilio",
+          "symptoms": ["Twilio 21608", "unauthorized"],
+          "fix": "Join sandbox from phone; set TWILIO_* in .env; ALLOW_OUTBOUND_WHATSAPP + WHATSAPP_TEST_NUMBER"
+        },
+        {
+          "type": "social_oauth",
+          "symptoms": ["Stub connector warnings", "empty mentions"],
+          "fix": "Complete OAuth per docs/SOCIAL-ACCOUNTS.md; Chrome work profile oren@gcs-tech.org"
+        },
+        {
+          "type": "local_bind",
+          "symptoms": ["EADDRINUSE on 3847"],
+          "fix": "Change BOT_PORT in .env or stop prior grok-bot session"
+        }
+      ],
+      "chromeProfile": "work — oren@gcs-tech.org",
+      "docs": [
+        "F:\\ai-workspace\\projects\\grok-social-bot\\docs\\WHATSAPP-SETUP.md",
+        "F:\\ai-workspace\\projects\\grok-social-bot\\docs\\SOCIAL-ACCOUNTS.md"
+      ]
+    }
+  }
+}

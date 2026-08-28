@@ -1,0 +1,10 @@
+# Optional local runner — bot binds 127.0.0.1 only by default
+services:
+  grok-social-bot:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:3847:3847"
+    restart: unless-stopped
+    command: ["npm", "start"]

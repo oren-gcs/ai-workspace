@@ -71,6 +71,17 @@
       "aws": { "accountId": "095198032894", "iamUser": "easyrun-ops" },
       "authHooks": ["aws", "gcloud"],
       "status": "inventory_blocked"
+    },
+    {
+      "appId": "grok_bot",
+      "localPath": "F:\\ai-workspace\\projects\\grok-social-bot\\local",
+      "workspacePath": "F:\\ai-workspace\\projects\\grok-social-bot",
+      "github": { "org": "oren-gcs", "repo": "ai-workspace", "remoteStatus": "configured", "note": "code under ai-workspace monorepo" },
+      "google": { "notes": "optional Meta Business for WhatsApp/Instagram Graph" },
+      "chromeProfile": "work — oren@gcs-tech.org",
+      "authHooks": ["xai", "meta_whatsapp", "twilio", "twitter_oauth", "linkedin_oauth", "gh"],
+      "envTemplate": "F:\\ai-workspace\\projects\\grok-social-bot\\local\\.env.example",
+      "status": "scaffold_no_oauth_no_whatsapp_connected"
     }
   ],
   "pendingUserActions": [
