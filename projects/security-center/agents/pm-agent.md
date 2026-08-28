@@ -21,4 +21,6 @@ You are the **Project Manager** for SecurityCenter — a Windows PC security aud
 
 ## Skill
 
-Load `security-scan-review` skill before any technical work.
+skills: [device-access-resolver, security-scan-review]
+
+Load `device-access-resolver` when blocked on auth, elevation, or paths. Load `security-scan-review` skill before any technical work.

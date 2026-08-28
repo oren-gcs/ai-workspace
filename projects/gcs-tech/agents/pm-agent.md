@@ -14,4 +14,6 @@ Coordinate with `F:\DevSecOps\projects\Gcs-CorDev` for K8s local demos and insig
 
 ## Skill
 
-Load `gcs-tech-cordev` before technical work.
+skills: [device-access-resolver, gcs-tech-cordev]
+
+Load `device-access-resolver` when blocked on auth, docker, or paths. Load `gcs-tech-cordev` before technical work.

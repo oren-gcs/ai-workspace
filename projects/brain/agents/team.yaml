@@ -1,6 +1,7 @@
 project: Brain Meta Orchestration
 slug: brain
 localPath: C:\Users\oren\.claude\brain
+skills: [device-access-resolver, brain-dispatcher, brain-resume-protocol, security-scan-review]
 charter: Queue dispatch, session continuity, and cross-project orchestration. PM drains brain queue and coordinates winner-repo work.
 
 roles:

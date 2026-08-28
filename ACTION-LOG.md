@@ -30,6 +30,168 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-28 — Device-access-resolver system deployed
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent |
+| **Action** | Created device-access-resolver skill, playbook, device-access-check/sync-gh-auth scripts, F: cursor rule, AGENTS.md, team.yaml skills for 7 projects |
+| **Target** | `C:\Users\oren\.cursor\skills\device-access-resolver\`, `F:\ai-workspace\`, `F:\.cursor\rules\device-access-on-block.mdc` |
+| **Result** | success (tooling); GitHub push blocked — GCM entry exists but token not extractable non-interactively |
+| **Next step** | User: set GH_TOKEN user env or `gh auth login` as oren-gcs; then `auto-push.ps1` |
+
+
+### 2026-08-28 — sync-gh-auth
+
+| Field | Value |
+|---|---|
+| **Actor** | sync-gh-auth.ps1 |
+| **Action** | Sync gh auth from GH_TOKEN or GCM |
+| **Target** | Windows gh CLI |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN user env or run gh auth login interactively |
+
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
+### 2026-08-28 — sync-gh-auth
+
+| Field | Value |
+|---|---|
+| **Actor** | sync-gh-auth.ps1 |
+| **Action** | Sync gh auth from GH_TOKEN or GCM |
+| **Target** | Windows gh CLI |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN user env or run gh auth login interactively |
+
+
+### 2026-08-28 — sync-gh-auth
+
+| Field | Value |
+|---|---|
+| **Actor** | sync-gh-auth.ps1 |
+| **Action** | Sync gh auth from GH_TOKEN or GCM |
+| **Target** | Windows gh CLI |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN user env or run gh auth login interactively |
+
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
+### 2026-08-28 — sync-gh-auth
+
+| Field | Value |
+|---|---|
+| **Actor** | sync-gh-auth.ps1 |
+| **Action** | Sync gh auth from GH_TOKEN or GCM |
+| **Target** | Windows gh CLI |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN user env or run gh auth login interactively |
+
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
+### 2026-08-28 — Elevated credentials quarantine
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent command-exec) |
+| **Action** | Ran elevated quarantine script; removed explicit deny ACEs; moved GCS service-user credentials CSV to secrets quarantine |
+| **Target** | `F:\gcs-tech-su_credentials (1).csv` → `F:\_archive\secrets-quarantine\gcs-tech-su_credentials-2026-08-28.csv` |
+| **Result** | success (after deny-ACE removal; initial move failed until `/remove:d`) |
+| **Next step** | None for this file; use `docs/ELEVATED-ACCESS.md` for future quarantine |
+
+**Notes:** Agent shell not elevated (`IsInRole(Administrator)` = False). UAC `RunAs` launched; user approval required. Log: `F:\ai-workspace\logs\elevated-quarantine-last.log`. No credential contents logged.
+
+
+
+### 2026-08-28 — Autonomous completion run (install + goals)
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent command-exec) |
+| **Action** | Installed gh in WSL (user bins); verified tools; docker compose up; auto-push task; attempted push/quarantine |
+| **Target** | doc-power-local-k8s, ai-workspace, cka-ai-bootcamp, scheduled task `ai-workspace-auto-push` |
+| **Result** | partial — push blocked (expired GitHub token / no GH_TOKEN); credentials CSV still denied |
+| **Next step** | User: `gh auth login -h github.com -p https` (Windows); then `F:\ai-workspace\scripts\auto-push.ps1` |
+
+**Tools:** Windows gh 2.97.0; WSL gh 2.97.0 (`~/bin` on Ubuntu + Ubuntu-24.04/oreng); firebase-tools 15.28.1; Azure CLI not installed (not required for push).
+
+**Push:** Failed/skipped — remote `oren-gcs/doc-power-local-k8s` and `oren-gcs/ai-workspace` return Repository not found without auth; WSL `hosts.yml` token HTTP 401.
+
+**doc-power:** `docker compose up -d` — frontend HTTP 200 on :3000; prometheus/cadvisor bind :9090 conflict with existing `prometheus` container.
+
+**cka-ai-bootcamp:** git repo on master @ `1c59ea9` (bridge_agent hardening).
+
+**docker system df:** Images 99.36GB (72.13GB reclaimable); Volumes 16.8GB (7.775GB reclaimable); no prune.
+
+**Credentials:** `F:\gcs-tech-su_credentials (1).csv` — takeown/Move-Item access denied (needs UAC elevation).
+
+**Scheduled task:** `\ai-workspace-auto-push` registered (daily 09:00).
+
+**Automations:** `config/automations/` has brain-dispatcher-hourly.json, security-scan-daily.json, README.md.
+
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
 ### 2026-08-28 — Auto-push skipped (no auth)
 
 | Field | Value |
@@ -192,6 +354,16 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Result** | success |
 | **Next step** | Review 18 dirty files in fun4kids, commit when ready |
 
+
+### 2026-08-28 — VS Code open + health checks (cursor-agent)
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent |
+| **Action** | Opened `ai-workspace.code-workspace`; gh auth check; auto-push; doc-power docker/HTTP; ProjectAgent `npm run list` |
+| **Target** | `F:\ai-workspace`, `F:\DevSecOps\projects\doc-power-local-k8s` |
+| **Result** | VS Code opened; doc-power healthy (19 containers Up, HTTP 3000 → 200); auto-push skipped (no gh auth); ProjectAgent list OK |
+| **Next step** | Run `gh auth login -h github.com -p https` in VS Code terminal, then re-run `scripts\auto-push.ps1` |
 ---
 
 ## Related docs

@@ -1,6 +1,7 @@
 project: Doc Power Platform
 slug: doc-power
 localPath: F:\DevSecOps\projects\doc-power-local-k8s
+skills: [device-access-resolver, doc-power-local-dev, brain-dispatcher, security-scan-review]
 charter: Monetizable SaaS document processing — OCR, workflows, enterprise tier. PM prioritizes remote push, security bindings, and revenue features.
 
 roles:

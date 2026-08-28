@@ -33,4 +33,6 @@ You are the **Project Manager** for Doc Power — a monetizable SaaS document pr
 
 ## Skill
 
-Load `doc-power-local-dev` skill before any technical work.
+skills: [device-access-resolver, doc-power-local-dev]
+
+Load `device-access-resolver` when blocked on auth, paths, docker, or elevation. Load `doc-power-local-dev` before technical work.

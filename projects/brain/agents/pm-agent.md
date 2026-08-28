@@ -21,4 +21,6 @@ You are the **Project Manager** for the Brain — cross-project queue and sessio
 
 ## Skills
 
-Load `brain-dispatcher` and `brain-resume-protocol` before work.
+skills: [device-access-resolver, brain-dispatcher, brain-resume-protocol]
+
+Load `device-access-resolver` when blocked on auth, paths, docker, or elevation. Load `brain-dispatcher` and `brain-resume-protocol` before work.

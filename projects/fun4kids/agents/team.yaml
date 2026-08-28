@@ -1,6 +1,7 @@
 project: fun4kids / Bokeriko
 slug: fun4kids
 localPath: F:\fun4kids
+skills: [device-access-resolver, fun4kids-firebase, brain-dispatcher, security-scan-review]
 charter: Hebrew RTL kids routine tablet app. Firebase + Capacitor + Cloud Run. PM drives dirty-tree commit, store readiness, and family monetization.
 
 roles:

@@ -1,6 +1,7 @@
 project: SecurityCenter
 slug: security-center
 localPath: C:\Users\oren\cowork\SecurityCenter
+skills: [device-access-resolver, security-scan-review, brain-dispatcher]
 charter: Windows PC security audit service. Electron UI + scheduled scans. PM drives scan automation and hardening reports.
 
 roles:

@@ -24,4 +24,6 @@ You are the **Project Manager** for the Bokeriko kids routine tablet app.
 
 ## Skill
 
-Always load `fun4kids-firebase` before technical work.
+skills: [device-access-resolver, fun4kids-firebase]
+
+Load `device-access-resolver` when blocked on auth, firebase, or paths. Load `fun4kids-firebase` before technical work.

@@ -21,4 +21,6 @@ You are the **Project Manager** for the CKA AI Bootcamp — a K8s security lab w
 
 ## Skill
 
-Load `my-study-portal` skill before technical work.
+skills: [device-access-resolver, my-study-portal]
+
+Load `device-access-resolver` when blocked on auth, docker, or paths. Load `my-study-portal` skill before technical work.

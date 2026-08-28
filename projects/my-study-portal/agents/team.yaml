@@ -1,6 +1,7 @@
 project: CKA Study Portal
 slug: my-study-portal
 localPath: F:\DevSecOps\projects\my_study_portal
+skills: [device-access-resolver, my-study-portal, brain-dispatcher, security-scan-review]
 charter: Learning platform for CKA exam (Oct 2026) with study tracks, bridge agent, MLOps lab. PM balances cert prep with monetizable courseware.
 
 roles:

@@ -1,6 +1,7 @@
 project: GCS-tech DevOps Insight Dashboard
 slug: gcs-tech
 localPath: F:\DevSecOps\projects\GCS-tech
+skills: [device-access-resolver, gcs-tech-cordev, brain-dispatcher, security-scan-review]
 charter: DevSecOps insight dashboard for consulting and product revenue. PM drives 10-file dirty commit and CorDev K8s overlap.
 
 roles:

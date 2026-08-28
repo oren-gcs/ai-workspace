@@ -1,6 +1,7 @@
 project: CKA AI Bootcamp
 slug: cka-ai-bootcamp
 localPath: F:\DevSecOps\projects\cka-ai-bootcamp
+skills: [device-access-resolver, my-study-portal, brain-dispatcher, security-scan-review]
 charter: K8s security learning lab with bridge agent to study portal. PM drives bridge hardening and CKA exam prep alignment.
 
 roles:

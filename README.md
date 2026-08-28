@@ -36,11 +36,14 @@ Accept workspace recommendations on first open:
 
 | Doc | Purpose |
 |---|---|
+| [docs/DEVICE-ACCESS-PLAYBOOK.md](./docs/DEVICE-ACCESS-PLAYBOOK.md) | Device/app/access blockers — invoke `device-access-resolver` skill |
 | [docs/VSCODE-MANAGEMENT.md](./docs/VSCODE-MANAGEMENT.md) | Daily workflow, git push, tasks, terminal profiles |
 | [docs/WSL-MANAGEMENT.md](./docs/WSL-MANAGEMENT.md) | `/mnt/f/` paths, gh/docker/gcloud from WSL |
 | [ACTION-LOG.md](./ACTION-LOG.md) | **Operational audit trail** (separate from git commits) |
 
 **Convention:** Code changes → project git commits. Merges, auth, infra moves, push blockers → append [ACTION-LOG.md](./ACTION-LOG.md).
+
+**When blocked on device/access:** invoke the `device-access-resolver` skill — see [AGENTS.md](./AGENTS.md) and [docs/DEVICE-ACCESS-PLAYBOOK.md](./docs/DEVICE-ACCESS-PLAYBOOK.md).
 
 ---
 

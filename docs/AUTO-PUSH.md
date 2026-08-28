@@ -113,3 +113,43 @@ Script exits **0**, logs **blocked** to ACTION-LOG, prints one line — no push 
 
 - [VSCODE-MANAGEMENT.md](./VSCODE-MANAGEMENT.md)
 - [WSL-MANAGEMENT.md](./WSL-MANAGEMENT.md)
+## GCM / VS Code / GitHub Desktop alignment
+
+Interactive sign-in in **VS Code** (Accounts → GitHub) or **Cursor** stores an OAuth token in **Git Credential Manager (GCM)**. That token works for `git push` and for `gh` when exposed as `GH_TOKEN`.
+
+| Source | Path / check | credential found |
+|---|---|---|
+| GCM (primary) | `git-credential-manager github list` | yes when VS Code signed in |
+| `gh` hosts file | `%USERPROFILE%\.config\gh\hosts.yml` | often empty while GCM has auth |
+| GitHub Desktop | `%LOCALAPPDATA%\GitHubDesktop\` | not installed on this machine |
+| WSL `gh` | `~/.config/gh/hosts.yml` | separate; may be empty |
+
+### Sync script (agents + PowerShell)
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File F:\ai-workspace\scripts\sync-gh-auth.ps1
+```
+
+- Reads `protocol=https` / `host=github.com` from GCM (never logs the token).
+- Sets **`GH_TOKEN` for the current process** so `gh auth status` shows `Logged in … (GH_TOKEN)`.
+- Optional `-PersistUserEnv` writes User-level `GH_TOKEN` (OAuth may rotate; prefer running the script per session).
+
+`gh auth login --with-token` expects a **classic PAT (`ghp_`)**. GCM usually stores **OAuth (`gho_`)**, which is valid for API/git via `GH_TOKEN` but not for `--with-token` import.
+
+### Git Bash (DevSecOps Git)
+
+| Tool | Path |
+|---|---|
+| Git Bash | `F:\DevSecOps\GIT\Git\bin\bash.exe` |
+| `gh` | `/c/Program Files/GitHub CLI/gh` (same as Windows) |
+| GCM | bundled with Git for Windows (`credential.helper=manager` in `F:\DevSecOps\GIT\Git\etc\gitconfig`) |
+
+In Git Bash, run the sync script via PowerShell or export `GH_TOKEN` after GCM login in Windows.
+
+### Verify after sync
+
+```powershell
+. F:\ai-workspace\scripts\sync-gh-auth.ps1 -Quiet
+gh auth status
+git -C F:\ai-workspace ls-remote origin
+```

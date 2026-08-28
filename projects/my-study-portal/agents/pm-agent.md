@@ -21,4 +21,6 @@ App serves on **3007** — never assume 3000.
 
 ## Skill
 
-Load `my-study-portal` and `study-portal-guardrails` rule before changes.
+skills: [device-access-resolver, my-study-portal]
+
+Load `device-access-resolver` when blocked on auth, docker, or paths. Load `my-study-portal` and `study-portal-guardrails` rule before changes.
