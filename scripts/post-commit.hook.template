@@ -1,7 +1,7 @@
-﻿#!/bin/sh
-# ai-workspace auto-push (non-blocking)
+#!/bin/sh
+# ai-workspace auto-push (non-blocking) ? spawns detached PowerShell worker
 REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null) || exit 0
-PS1="F:/ai-workspace/scripts/auto-push.ps1"
-if [ ! -f "$PS1" ]; then exit 0; fi
-powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "$PS1" -OnlyPath "$REPO_ROOT" </dev/null >/dev/null 2>&1 &
+SPAWN="F:/ai-workspace/scripts/spawn-auto-push.ps1"
+if [ ! -f "$SPAWN" ]; then exit 0; fi
+powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "$SPAWN" -OnlyPath "$REPO_ROOT" </dev/null >/dev/null 2>&1 &
 exit 0

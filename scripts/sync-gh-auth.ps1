@@ -1,6 +1,7 @@
-# sync-gh-auth.ps1
+﻿# sync-gh-auth.ps1
 param([switch]$Quiet,[switch]$PersistUserEnv)
 $ErrorActionPreference = "Stop"
+$env:GIT_TERMINAL_PROMPT = "0"
 function Write-SyncMsg { param([string]$Message) if (-not $Quiet) { Write-Host $Message } }
 function Get-GcmExecutable {
     $cmd = Get-Command git-credential-manager -ErrorAction SilentlyContinue

@@ -1,4 +1,4 @@
-# Auto-push — GitHub without manual diff-tab push
+﻿# Auto-push — GitHub without manual diff-tab push
 
 Push configured F: repos when local commits exist and GitHub auth is available. **Never force-pushes.** Operational runs append to [ACTION-LOG.md](../ACTION-LOG.md).
 
@@ -105,6 +105,31 @@ Remove:
 Unregister-ScheduledTask -TaskName "ai-workspace-auto-push" -Confirm:$false
 ```
 
+
+## Troubleshooting (Git stuck on Windows)
+
+| Symptom | Fix |
+|---|---|
+| Commit hangs after message | Re-run `install-auto-push-hooks.ps1`; hook must call `spawn-auto-push.ps1` (detached), not wait on push |
+| `git status` slow on ai-workspace | Submodule scan noise — `git status -uno` or `git config --global status.submoduleSummary false` |
+| `lib64/` warning on F: | WSL junction; safe to ignore for parent-repo work |
+| Agent hangs on credential prompt | User env `GIT_TERMINAL_PROMPT=0`; run `sync-gh-auth.ps1` before push |
+| Many `git-bash.exe` shells | Close stale terminals; hooks are non-blocking — investigate extensions spawning bash |
+
+### Background worker (all repos)
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File F:\ai-workspace\scripts\git-background-worker.ps1
+```
+
+Logs: `F:\ai-workspace\logs\git-worker\`. Register every 30 minutes:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File F:\ai-workspace\scripts\register-git-background-worker.ps1
+```
+
+VS Code: **Git background sync (all repos)** task.
+
 ## Behavior when auth is missing
 
 Script exits **0**, logs **blocked** to ACTION-LOG, prints one line — no push failure spam.
@@ -153,3 +178,4 @@ In Git Bash, run the sync script via PowerShell or export `GH_TOKEN` after GCM l
 gh auth status
 git -C F:\ai-workspace ls-remote origin
 ```
+

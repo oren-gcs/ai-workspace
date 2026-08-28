@@ -1,4 +1,4 @@
-# Device Access Playbook
+﻿# Device Access Playbook
 
 **Purpose:** Operational reference for resolving device, app, and access blockers across the F: drive portfolio. Mirrors the global Cursor skill `device-access-resolver`.
 
@@ -198,6 +198,30 @@ Docker Desktop → Settings → WSL Integration → enable Ubuntu-24.04.
 
 ---
 
+
+## Git for Windows stuck / slow
+
+Symptoms: `git status` or `git fetch` hangs; commit waits on post-commit; many idle `git-bash.exe` processes; GCM OAuth prompt in headless agents.
+
+| Check | Command |
+|---|---|
+| Git path | `where.exe git` → prefer `F:\DevSecOps\GIT\Git\cmd\git.exe` |
+| Stuck children | `Get-Process git*,ssh*,gcm*` |
+| Auth (non-interactive) | `GIT_TERMINAL_PROMPT=0` (User env) + `sync-gh-auth.ps1` |
+| Long paths | `git config --global core.longpaths true` |
+| Submodule scan noise | `git config --global status.submoduleSummary false` |
+| GCM OAuth | `git config --global credential.msauthFlow oauth` |
+
+**Fixes applied in ai-workspace:**
+
+1. Post-commit hooks call `spawn-auto-push.ps1` (detached `Start-Process`, hook returns in <1s).
+2. Background worker: `scripts/git-background-worker.ps1` (logs under `logs/git-worker/`).
+3. Scheduled task `ai-workspace-git-background-worker` (every 30 min, optional).
+4. Reinstall hooks: `install-auto-push-hooks.ps1`.
+
+If `lib64/` warnings appear on `F:\`, treat as WSL junction noise; use `git status -uno` when you only care about the parent repo.
+
+
 ## Credential quarantine
 
 **Path:** `F:\_archive\secrets-quarantine\`
@@ -235,3 +259,5 @@ Structured blocker hints: `F:\ai-workspace\config\device-access-patterns.json` (
 - [WSL-MANAGEMENT.md](./WSL-MANAGEMENT.md)
 - [VSCODE-MANAGEMENT.md](./VSCODE-MANAGEMENT.md)
 - [ACTION-LOG.md](../ACTION-LOG.md)
+
+

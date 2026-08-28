@@ -16,4 +16,5 @@ foreach ($repo in $targets) {
     Copy-Item -Path $template -Destination $dest -Force
     Write-Host "Installed post-commit hook: $repo"
 }
-Write-Host "Hooks call auto-push.ps1 with -OnlyPath for that repo only."
+Write-Host "Hooks call spawn-auto-push.ps1 (detached) -> auto-push.ps1 with -OnlyPath for that repo only."
+

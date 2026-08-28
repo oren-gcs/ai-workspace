@@ -30,6 +30,105 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-28 — Git for Windows: stuck commits / background sync
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent |
+| **Action** | Diagnosed Git 2.55 on F: drive; enabled longpaths/fsmonitor/GCM oauth; detached post-commit via spawn-auto-push.ps1; added git-background-worker + 30m scheduled task; updated AUTO-PUSH + DEVICE-ACCESS docs |
+| **Target** | F:\ai-workspace, global git config |
+| **Result** | success |
+| **Next step** | Close excess git-bash terminals if count grows; monitor logs/git-worker |
+
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
 ### 2026-08-28 — Grok social bot project scaffold
 
 | Field | Value |
