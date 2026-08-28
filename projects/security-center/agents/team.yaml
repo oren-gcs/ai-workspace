@@ -1,0 +1,51 @@
+project: SecurityCenter
+slug: security-center
+localPath: C:\Users\oren\cowork\SecurityCenter
+charter: Windows PC security audit service. Electron UI + scheduled scans. PM drives scan automation and hardening reports.
+
+roles:
+  ProjectManager:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Prioritize daily security review automation and scan result triage.
+      Track Windows schtasks reliability and Electron UI milestones.
+
+  Developer:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Electron app features. Never commit credentials or scan exports with PII.
+
+  DevOps:
+    skill: security-scan-review
+    mcpServers: [filesystem]
+    instructions: Windows schtasks, alert-thresholds.ps1, local scan runners.
+
+  QA:
+    skill: security-scan-review
+    mcpServers: [filesystem]
+    instructions: Validate scan output formats and threshold alerts on test machine.
+
+  SecurityAuditor:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Own scan policy, false-positive review, and remediation guidance.
+
+  LearningCoach:
+    skill: security-scan-review
+    mcpServers: [brain]
+    instructions: Map Windows hardening wins to CKA/network security study topics.
+
+mcp:
+  registry: F:\ai-workspace\mcp\registry.json
+  allowedPaths:
+    - C:\Users\oren\cowork\SecurityCenter
+    - F:\ai-workspace
+
+monetization:
+  primary: PC security audit service
+  nextMilestone: Cursor Automation for daily security review
+  blockers: [schtasks_reliability, electron_ui_polish]

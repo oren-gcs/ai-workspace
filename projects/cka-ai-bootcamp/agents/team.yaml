@@ -1,0 +1,51 @@
+project: CKA AI Bootcamp
+slug: cka-ai-bootcamp
+localPath: F:\DevSecOps\projects\cka-ai-bootcamp
+charter: K8s security learning lab with bridge agent to study portal. PM drives bridge hardening and CKA exam prep alignment.
+
+roles:
+  ProjectManager:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Prioritize bridge_agent.py security (127.0.0.1, debug=False, auth token).
+      Align lab modules with CKA exam Oct 2026.
+
+  Developer:
+    skill: my-study-portal
+    skillPath: C:\Users\oren\.cursor\skills\my-study-portal\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Bridge agent, Flask API, frontend portal integration.
+
+  DevOps:
+    skill: my-study-portal
+    mcpServers: [filesystem]
+    instructions: Docker compose for bridge-agent, kind cluster exercises.
+
+  QA:
+    skill: my-study-portal
+    mcpServers: [filesystem]
+    instructions: Test COMMAND_POLICY blocks dangerous kubectl/docker commands.
+
+  SecurityAuditor:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Audit bridge bind address, CORS, auth token, debug mode.
+
+  LearningCoach:
+    skill: my-study-portal
+    mcpServers: [brain]
+    instructions: Map bootcamp labs to study portal tracks and CKA objectives.
+
+mcp:
+  registry: F:\ai-workspace\mcp\registry.json
+  allowedPaths:
+    - F:\DevSecOps\projects\cka-ai-bootcamp
+    - F:\DevSecOps\projects\my_study_portal
+
+monetization:
+  primary: Bridge to study portal courseware
+  nextMilestone: Auth token + CORS hardening on :8088
+  blockers: [bridge_auth_token, frontend_token_field]

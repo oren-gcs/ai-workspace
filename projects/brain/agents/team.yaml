@@ -1,0 +1,53 @@
+project: Brain Meta Orchestration
+slug: brain
+localPath: C:\Users\oren\.claude\brain
+charter: Queue dispatch, session continuity, and cross-project orchestration. PM drains brain queue and coordinates winner-repo work.
+
+roles:
+  ProjectManager:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Drain queue.json hourly. Write RESUME.md handoffs. Never commit secrets.
+      Coordinate P0 blockers (gh auth, docker moves) across projects.
+
+  Developer:
+    skill: brain-dispatcher
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Maintain queue.json schema, digests, dispatcher scripts.
+
+  DevOps:
+    skill: brain-dispatcher
+    mcpServers: [filesystem]
+    instructions: BrainDashboard AtLogOn schtask, hourly Cowork/Cursor automation.
+
+  QA:
+    skill: brain-dispatcher
+    mcpServers: [filesystem]
+    instructions: Verify queue drain produces actionable RESUME updates.
+
+  SecurityAuditor:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Audit brain artifacts for credential leakage before commits.
+
+  LearningCoach:
+    skill: brain-resume-protocol
+    skillPath: C:\Users\oren\.cursor\skills\brain-resume-protocol\SKILL.md
+    mcpServers: [brain]
+    instructions: Map session continuity patterns to study portal learning goals.
+
+mcp:
+  registry: F:\ai-workspace\mcp\registry.json
+  allowedPaths:
+    - C:\Users\oren\.claude\brain
+    - F:\ai-workspace
+    - F:\_archive\_inventory
+
+monetization:
+  primary: Enables all projects (meta)
+  nextMilestone: Cursor Automation hourly queue drain
+  blockers: [BrainDashboard_schtask, gh_auth]
