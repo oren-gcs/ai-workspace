@@ -34,9 +34,9 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | Field | Value |
 |---|---|
 | **Actor** | cursor-agent (subagent) |
-| **Action** | Created multi-root workspace, WSL/VSCODE runbooks, ACTION-LOG, VS Code tasks, README links; prepared ai-workspace initial git commit |
+| **Action** | Created multi-root workspace, WSL/VSCODE runbooks, ACTION-LOG, VS Code tasks, README links; committed @ `e7ca9dd` (prior init @ `99035cd`) |
 | **Target** | `F:\ai-workspace\` |
-| **Result** | success |
+| **Result** | success (local commits; push blocked on gh auth) |
 | **Next step** | User opens workspace; run `gh auth login` in WSL; push doc-power and ai-workspace when auth verified |
 
 ### 2026-08-28 — Accounts & Chrome profiles audit
