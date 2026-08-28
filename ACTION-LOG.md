@@ -30,6 +30,49 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
+### 2026-08-28 — Autonomous run final (subagent continuation)
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent autonomous-run final) |
+| **Action** | Completed remaining goals: doc-power health verified (21 services, :3000→200); fixed corrupted auto-push.ps1; committed ai-workspace tooling @ `03e60be`; init cka-ai-bootcamp git @ `1c59ea9`; ProjectAgent `npm run list` OK (7 teams); auto-push blocked (no gh auth); credentials quarantine retry blocked; automation JSON drafts added |
+| **Target** | F: portfolio — see `F:\_archive\_inventory\autonomous-run-2026-08-28-final.json` |
+| **Result** | partial — 18/22 goals done; 4 blocked on user auth/elevation |
+| **Next step** | Oren: `gh auth login`; elevated credentials move; complete cka bridge auth+CORS (brn8x2a1); activate Cursor automations from config drafts |
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or run gh auth login (interactive, outside agent) |
+
+
+### 2026-08-28 — Auto-push skipped (no auth)
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | F:/DevSecOps/projects/doc-power-local-k8s; F:/ai-workspace |
+| **Result** | blocked |
+| **Next step** | Set GH_TOKEN or gh auth login (interactive, outside agent) |
+
+
 ### 2026-08-28 — Follow-up autonomous run 5a35c05c
 
 | Field | Value |

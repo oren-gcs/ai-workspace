@@ -57,6 +57,14 @@
       "status": "local_cluster_running"
     },
     {
+      "appId": "cka-ai-bootcamp",
+      "localPath": "F:\\DevSecOps\\projects\\cka-ai-bootcamp",
+      "github": { "remoteStatus": "not_configured" },
+      "runtime": { "type": "flask-bridge", "port": 8088, "bind": "127.0.0.1" },
+      "authHooks": ["docker", "gh"],
+      "status": "git_init_local_auth_cors_open"
+    },
+    {
       "appId": "easy-run",
       "localPath": "F:\\DevSecOps\\projects\\GCS-tech\\easyrun-n-insights",
       "google": { "gcpProjectId": "easy-run-476214" },
