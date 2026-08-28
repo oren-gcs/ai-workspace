@@ -1,0 +1,62 @@
+{
+  "folders": [
+    {
+      "name": "ai-workspace (orchestration)",
+      "path": "."
+    },
+    {
+      "name": "doc-power-local-k8s",
+      "path": "../DevSecOps/projects/doc-power-local-k8s"
+    },
+    {
+      "name": "fun4kids",
+      "path": "../fun4kids"
+    },
+    {
+      "name": "my-study-portal",
+      "path": "../DevSecOps/projects/my_study_portal"
+    },
+    {
+      "name": "GCS-tech (insight)",
+      "path": "../DevSecOps/projects/GCS-tech"
+    },
+    {
+      "name": "archive-inventory (read-only ref)",
+      "path": "../_archive/_inventory"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/.memory": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/_archive/_inventory/_tmp": true
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.windows": {
+      "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell"
+      },
+      "WSL Ubuntu": {
+        "path": "C:\\Windows\\System32\\wsl.exe",
+        "args": ["-d", "Ubuntu-24.04"],
+        "icon": "terminal-linux"
+      }
+    },
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "docker.showStartPage": false
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode-remote.remote-wsl",
+      "ms-azuretools.vscode-docker",
+      "github.vscode-pull-request-github",
+      "toba.vsfirestore",
+      "googlecloudtools.cloudcode"
+    ]
+  }
+}
