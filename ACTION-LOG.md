@@ -29,6 +29,26 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 
 ## Log entries
 
+
+### 2026-08-28 — Follow-up autonomous run 5a35c05c
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent follow-up) |
+| **Action** | Restarted doc-power compose (21 services up); verified http://localhost:3000 → 200; committed compose localhost bind @ doc-power `bef08de`; committed ai-workspace scaffolds @ `0ac7f13`; skipped cka-ai-bootcamp `bridge_agent.py` commit (no git repo at canonical path) |
+| **Target** | `F:\DevSecOps\projects\doc-power-local-k8s`, `F:\ai-workspace` |
+| **Result** | success (local commits only; no push) |
+| **Next step** | Init git or commit `bridge_agent.py` in cka-ai-bootcamp when repo exists; `gh auth login` before push; add `projects/cka-ai-bootcamp/local` junction to ai-workspace if desired |
+### 2026-08-28 — Autonomous goal queue run (P0–P7)
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent autonomous-run) |
+| **Action** | Executed 20-goal queue: gh auth retry, compose localhost bind, bridge_agent patch, docker/kind audit, repo hygiene, 3 team scaffolds, automation drafts, credentials quarantine retry |
+| **Target** | F: portfolio — see `F:\_archive\_inventory\autonomous-run-2026-08-28.json` |
+| **Result** | partial — 12 done, 5 blocked, 3 skipped/partial |
+| **Next step** | Oren: `gh auth login`; elevated credentials move; `docker compose up -d` doc-power; review uncommitted security patches |
+
 ### 2026-08-28 — VS Code + WSL management surface setup
 
 | Field | Value |
