@@ -111,7 +111,7 @@ function Test-BrainSmoke {
     if (-not (Test-Path $smoke)) { return $false }
     $job = Start-Job -ScriptBlock { param($s) & node $s 2>&1 } -ArgumentList $smoke
     $done = Wait-Job $job -Timeout 5
-    if (-not $done) { Stop-Job $job -Force; Remove-Job $job -Force; return $false }
+    if (-not $done) { Stop-Job $job; Remove-Job $job -Force; return $false }
     $lines = @(Receive-Job $job)
     Remove-Job $job -Force
     $text = ($lines | ForEach-Object { "$_" }) -join [Environment]::NewLine
@@ -127,14 +127,9 @@ function New-ServiceEntry {
     $listenerPid = $null
     $dockerNote = $null
 
-    if ($Definition.id -eq "brain-mcp" -and $Definition.verify) {
-        $smoke = $Definition.verify -replace "^node\s+", ""
-        if (Test-Path $smoke) {
-            $lines = @(& node $smoke 2>&1)
-            $text = ($lines | ForEach-Object { "$_" }) -join [Environment]::NewLine
-            $healthOk = ($text -match "INIT: ok") -and ($text -match "STATUS: ok")
-            $status = if ($healthOk) { "running" } else { "stopped" }
-        }
+    if ($Definition.id -eq "brain-mcp") {
+        $healthOk = Test-BrainSmoke
+        $status = if ($healthOk) { "running" } else { "stopped" }
     } elseif ($Definition.port) {
         $listening = Test-PortListening -Port $Definition.port
         $listenerPid = if ($listening) { Get-ListenerPid -Port $Definition.port } else { $null }

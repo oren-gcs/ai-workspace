@@ -36,6 +36,105 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 |---|---|
 | **Actor** | auto-push.ps1 |
 | **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: pushed 2 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push partial/failed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: git push failed (exit 1) |
+| **Result** | partial |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
 | **Target** | ai-workspace: pushed 1 commit(s) |
 | **Result** | success |
 | **Next step** | none |
@@ -2288,7 +2387,16 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Next step** | gh auth login in interactive shell; disable deploy-on-aws hook if bash count returns; run cleanup script periodically |
 
 
-### 2026-08-30 — Start all local MCP servers
+### 2026-08-30 — Brain formalized as tier-1 agent-company project
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent |
+| **Action** | Formalized brain as ai-workspace agent-company project with brain-v2 local layer, sync scripts, workspaces |
+| **Target** | `F:\ai-workspace\projects\brain`, commit `880b486` |
+| **Result** | success — pushed to origin/master |
+| **Next step** | Port hourly dispatcher to Cursor Automation; run brain-sync after cross-tool sessions |
+
 
 | Field | Value |
 |---|---|
@@ -2308,3 +2416,16 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Result** | success — root cause legacy start-all-local UI-default run at 09:26; no start-all scheduled task; no duplicate dev ports |
 | **Next step** | Use start-all-local -NoOpen -SkipIfRunning; quit extra VS Code windows; start Docker engine for doc-power/MCP_DOCKER |
 
+- 2026-08-30 10:10:27 start-all-local: study 3007, fun4kids 3002, gcs-tech 3003, grok 3847; docker/gh failures documented in logs/services-2026-08-30-run.md
+
+2026-08-30 10:19 push master: direct git push failed (HTTPS prompt); sync-gh-auth + auto-push; origin/master=44c6076; 4213b65/7e5d253 already on remote.
+
+### 2026-08-30 — Service state registry + idempotent start
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent) |
+| **Action** | Built get-running-services.ps1 probe (ports/PID/docker/node), status-all.ps1 parallel table, PARALLEL-APPS.md; verified start-all-local -SkipIfRunning skips running services and never opens VS Code without -OpenUI |
+| **Target** | F:\ai-workspace |
+| **Result** | success — no duplicate listeners on 3002/3003/3007/3847; registry at config/running-services.json |
+| **Next step** | Run status-all before start-all; use register-start-all-local-schedule.ps1 for daily -NoOpen -SkipIfRunning |
