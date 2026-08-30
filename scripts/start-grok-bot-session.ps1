@@ -44,8 +44,17 @@ try {
         Write-Host "[grok-bot] Foreground mode — log: $logFile"
         npm @npmArgs 2>&1 | Tee-Object -FilePath $logFile
     } else {
+        # Start-Process cannot launch "npm" directly on Windows (it is npm.cmd, not an .exe)
+        $npmCmd = (Get-Command npm.cmd -ErrorAction SilentlyContinue).Source
+        if (-not $npmCmd) {
+            $nodeDir = Split-Path (Get-Command node -ErrorAction SilentlyContinue).Source -Parent
+            if ($nodeDir) { $npmCmd = Join-Path $nodeDir "npm.cmd" }
+        }
+        if (-not $npmCmd -or -not (Test-Path $npmCmd)) {
+            throw "npm.cmd not found on PATH or next to node.exe"
+        }
         Write-Host "[grok-bot] Starting in background — log: $logFile"
-        $proc = Start-Process -FilePath "npm" -ArgumentList @("run", "start") `
+        $proc = Start-Process -FilePath $npmCmd -ArgumentList @("run", "start") `
             -WorkingDirectory $projectLocal `
             -RedirectStandardOutput $logFile `
             -RedirectStandardError (Join-Path $logDir "session-$stamp.err.log") `

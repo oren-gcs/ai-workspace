@@ -125,7 +125,7 @@
       "type": "script",
       "startCommand": "F:\\ai-workspace\\scripts\\brain-sync.ps1",
       "stopCommand": "note:One-shot sync script",
-      "port": null,
+      "port": 7717,
       "url": "http://127.0.0.1:7717",
       "healthUrl": "http://127.0.0.1:7717",
       "workspaceFile": "F:\\ai-workspace\\workspaces\\brain.code-workspace"

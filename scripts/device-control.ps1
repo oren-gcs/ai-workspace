@@ -222,7 +222,11 @@ function Start-BackgroundApp {
     }
 
     if ($App.startCommand -like "*.ps1") {
-        & $App.startCommand 2>&1 | Out-Null
+        try {
+            & $App.startCommand 2>&1 | Out-Null
+        } catch {
+            return @{ Started = $false; Note = ("ps1 failed: " + $_.Exception.Message); Pid = $null; Log = $outLog }
+        }
         Start-Sleep -Seconds 2
         $r = Test-AppRunning -App $App
         return @{ Started = $r.Running; Note = "via ps1"; Pid = $r.Pid; Log = $outLog }
@@ -321,7 +325,11 @@ function Invoke-DeviceStart {
     if ($Id -eq "all") {
         $apps = Get-DeviceApps | Where-Object { $_.startCommand -notlike "note:*" }
         foreach ($a in $apps) {
-            Invoke-DeviceStart -Id $a.id -SkipIfRunning $SkipIfRunning
+            try {
+                Invoke-DeviceStart -Id $a.id -SkipIfRunning $SkipIfRunning
+            } catch {
+                Write-Warning ("[" + $a.id + "] start failed: " + $_.Exception.Message + " — continuing with remaining apps")
+            }
         }
         # Also invoke MCP batch for stdio/ollama extras
         $mcpScript = Join-Path $Root "scripts\start-all-mcps.ps1"

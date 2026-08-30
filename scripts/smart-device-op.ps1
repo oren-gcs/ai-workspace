@@ -27,12 +27,15 @@ function Invoke-ScriptChecked {
   param(
     [string]$Label,
     [string]$ScriptPath,
-    [string[]]$ScriptArgs = @()
+    [hashtable]$ScriptArgs = @{}
   )
   if (-not (Test-Path $ScriptPath)) {
     return @{ Ok = $false; ExitCode = 127; Note = "missing: $ScriptPath" }
   }
-  Write-Host "[$Label] $ScriptPath $($ScriptArgs -join ' ')" -ForegroundColor Cyan
+  $argText = (@($ScriptArgs.GetEnumerator() | ForEach-Object {
+    if ($_.Value -is [bool] -and $_.Value) { "-$($_.Key)" } else { "-$($_.Key) $($_.Value)" }
+  })) -join ' '
+  Write-Host "[$Label] $ScriptPath $argText" -ForegroundColor Cyan
   & $ScriptPath @ScriptArgs
   $code = if ($null -ne $LASTEXITCODE) { $LASTEXITCODE } else { 0 }
   return @{ Ok = ($code -eq 0); ExitCode = $code; Note = "exit=$code" }
@@ -40,7 +43,7 @@ function Invoke-ScriptChecked {
 
 switch ($Operation) {
   "status" {
-    $r = Invoke-ScriptChecked -Label "status" -ScriptPath (Join-Path $Root "scripts\status-all.ps1") -ScriptArgs $(if ($Json) { @("-Json") } else { @() })
+    $r = Invoke-ScriptChecked -Label "status" -ScriptPath (Join-Path $Root "scripts\status-all.ps1") -ScriptArgs $(if ($Json) { @{ Json = $true } } else { @{} })
     if (-not $r.Ok) {
       Write-Escalation -Target "Cursor agent (composer-2.5-fast) + device-access-resolver" -Reason "status-all reported down services or device-access failures"
     }
@@ -48,10 +51,10 @@ switch ($Operation) {
   }
 
   "start" {
-    $args = @()
-    if (-not $OpenUI) { $args += "-NoOpen" } else { $args += "-OpenUI" }
-    if ($SkipIfRunning) { $args += "-SkipIfRunning" }
-    $r = Invoke-ScriptChecked -Label "start" -ScriptPath (Join-Path $Root "scripts\start-all-local.ps1") -ScriptArgs $args
+    $startArgs = @{}
+    if ($OpenUI) { $startArgs.OpenUI = $true } else { $startArgs.NoOpen = $true }
+    if ($SkipIfRunning) { $startArgs.SkipIfRunning = $true }
+    $r = Invoke-ScriptChecked -Label "start" -ScriptPath (Join-Path $Root "scripts\start-all-local.ps1") -ScriptArgs $startArgs
     if (-not $r.Ok) {
       Write-Escalation -Target "Cursor agent (composer-2.5-fast) + device-access-resolver" -Reason "start-all-local failed — check docker, npm paths, or port conflicts"
     }
@@ -96,7 +99,7 @@ switch ($Operation) {
       exit 2
     }
     $notify = "C:\Users\oren\.claude\brain\scripts\brain-notify.ps1"
-    $r = Invoke-ScriptChecked -Label "push" -ScriptPath $notify -ScriptArgs @("-Title", $Title, "-Message", $Message)
+    $r = Invoke-ScriptChecked -Label "push" -ScriptPath $notify -ScriptArgs @{ Title = $Title; Message = $Message }
     if (-not $r.Ok) {
       Write-Escalation -Target "Cowork (Claude Desktop)" -Reason "brain-notify.ps1 failed — Cowork PushNotification MCP or check phone-config.json / ntfy topic"
     }
@@ -104,9 +107,9 @@ switch ($Operation) {
   }
 
   "diagnose" {
-    $args = @()
-    if ($Json) { $args += "-Json" }
-    $r = Invoke-ScriptChecked -Label "diagnose" -ScriptPath (Join-Path $Root "scripts\device-access-check.ps1") -ScriptArgs $args
+    $diagArgs = @{}
+    if ($Json) { $diagArgs.Json = $true }
+    $r = Invoke-ScriptChecked -Label "diagnose" -ScriptPath (Join-Path $Root "scripts\device-access-check.ps1") -ScriptArgs $diagArgs
     if (-not $r.Ok) {
       Write-Escalation -Target "Cursor agent (composer-2.5-fast) + device-access-resolver skill" -Reason "device-access-check reported failures — run sync-gh-auth.ps1 or see DEVICE-ACCESS-PLAYBOOK.md"
     }
