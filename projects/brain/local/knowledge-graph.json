@@ -1,0 +1,8 @@
+{"type":"entity","name":"brain-v2","entityType":"infra","observations":["Path F:\\ai-workspace\\projects\\brain\\local — Cursor-evolved brain layer, formal agent-company project 2026-08-30.","Syncs with Claude brain via brain-sync.ps1; does not replace C:\\Users\\oren\\.claude\\brain.","Session learnings in session-learnings.json distilled from ACTION-LOG."]}
+{"type":"entity","name":"ai-workspace agent company","entityType":"infra","observations":["Orchestration root F:\\ai-workspace with 7+ project teams.","Each project: agents/team.yaml, AGENTS.md, local/ junction to winner path.","ProjectAgent CLI at F:\\ai-workspace\\lib\\agent-class.","Manifest: F:\\_archive\\_inventory\\project-agents-manifest.json."]}
+{"type":"entity","name":"device-control hub","entityType":"infra","observations":["CLI: F:\\ai-workspace\\scripts\\device-control.ps1","HTTP API: 127.0.0.1:3920","MCP stdio: F:\\ai-workspace\\mcp\\device-control\\server.mjs","App registry: F:\\ai-workspace\\config\\device-apps.json"]}
+{"type":"entity","name":"grok-social-bot","entityType":"project","observations":["Path F:\\ai-workspace\\projects\\grok-social-bot\\local","Grok-powered social mention monitor with WhatsApp digests.","Scaffold only — OAuth and API keys pending user setup.","Port 3847, device-control id grok-bot."]}
+{"type":"relation","from":"brain-v2","to":"the brain","relationType":"syncs with"}
+{"type":"relation","from":"brain-v2","to":"ai-workspace agent company","relationType":"is meta project of"}
+{"type":"relation","from":"device-control hub","to":"brain-v2","relationType":"managed by DeviceOpsBridge role"}
+{"type":"relation","from":"grok-social-bot","to":"ai-workspace agent company","relationType":"is project of"}

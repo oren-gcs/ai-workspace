@@ -1,0 +1,145 @@
+{
+  "version": "1.0.0",
+  "description": "Registered local apps, services, and MCP-adjacent processes for device-control.ps1",
+  "apps": [
+    {
+      "id": "doc-power",
+      "name": "Doc Power Local K8s",
+      "path": "F:\\DevSecOps\\projects\\doc-power-local-k8s",
+      "type": "docker",
+      "startCommand": "docker compose up -d",
+      "stopCommand": "docker compose down",
+      "port": 3000,
+      "ports": [3000, 3001, 8000, 8008],
+      "url": "http://localhost:3000",
+      "healthUrl": "http://localhost:3000",
+      "workspaceFile": "F:\\ai-workspace\\workspaces\\master.code-workspace"
+    },
+    {
+      "id": "fun4kids",
+      "name": "Fun4Kids",
+      "path": "F:\\fun4kids",
+      "type": "npm",
+      "startCommand": "npm run dev",
+      "stopCommand": "port:3002",
+      "port": 3002,
+      "url": "http://localhost:3002",
+      "healthUrl": "http://localhost:3002",
+      "env": { "PORT": "3002" },
+      "workspaceFile": "F:\\ai-workspace\\workspaces\\master.code-workspace"
+    },
+    {
+      "id": "gcs-tech",
+      "name": "GCS Tech Insight",
+      "path": "F:\\DevSecOps\\projects\\GCS-tech",
+      "type": "npm",
+      "startCommand": "npm run dev -- --port 3003 --host 127.0.0.1",
+      "stopCommand": "port:3003",
+      "port": 3003,
+      "url": "http://localhost:3003",
+      "healthUrl": "http://localhost:3003",
+      "workspaceFile": "F:\\ai-workspace\\workspaces\\master.code-workspace"
+    },
+    {
+      "id": "cordev",
+      "name": "GCS CorDev Insights",
+      "path": "F:\\DevSecOps\\projects\\Gcs-CorDev\\app-code\\insights",
+      "type": "npm",
+      "startCommand": "npm run start",
+      "stopCommand": "port:3004",
+      "port": 3004,
+      "url": "http://localhost:3004",
+      "healthUrl": "http://localhost:3004",
+      "env": { "PORT": "3004", "BROWSER": "none" },
+      "workspaceFile": "F:\\ai-workspace\\workspaces\\master.code-workspace"
+    },
+    {
+      "id": "study-portal",
+      "name": "My Study Portal",
+      "path": "F:\\DevSecOps\\projects\\my_study_portal",
+      "type": "npm",
+      "startCommand": "npm run dev",
+      "stopCommand": "port:3007",
+      "port": 3007,
+      "url": "http://localhost:3007",
+      "healthUrl": "http://localhost:3007",
+      "env": { "PORT": "3007" },
+      "workspaceFile": "F:\\ai-workspace\\workspaces\\master.code-workspace"
+    },
+    {
+      "id": "grok-bot",
+      "name": "Grok Social Bot",
+      "path": "F:\\ai-workspace\\projects\\grok-social-bot\\local",
+      "type": "npm",
+      "startCommand": "F:\\ai-workspace\\scripts\\start-grok-bot-session.ps1",
+      "stopCommand": "port:3847",
+      "port": 3847,
+      "url": "http://127.0.0.1:3847",
+      "healthUrl": "http://127.0.0.1:3847",
+      "env": { "BOT_PORT": "3847" },
+      "workspaceFile": "F:\\ai-workspace\\projects\\grok-social-bot"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama Daemon",
+      "path": "system",
+      "type": "mcp",
+      "startCommand": "note:Start Ollama Desktop or ollama serve",
+      "stopCommand": "note:Stop via Ollama Desktop",
+      "port": 11434,
+      "url": "http://127.0.0.1:11434",
+      "healthUrl": "http://127.0.0.1:11434/api/tags"
+    },
+    {
+      "id": "ollama-mcp",
+      "name": "Ollama MCP HTTP",
+      "path": "C:\\Users\\oren\\ollama-mcp",
+      "type": "mcp",
+      "startCommand": "node server.js",
+      "stopCommand": "port:11435",
+      "port": 11435,
+      "url": "http://127.0.0.1:11435",
+      "healthUrl": "http://127.0.0.1:11435/",
+      "env": {
+        "MCP_BIND": "127.0.0.1",
+        "MCP_PORT": "11435",
+        "OLLAMA_HOST": "http://127.0.0.1:11434"
+      }
+    },
+    {
+      "id": "brain-mcp",
+      "name": "Brain MCP",
+      "path": "C:\\Users\\oren\\.claude\\brain\\mcp",
+      "type": "stdio",
+      "startCommand": "node C:\\Users\\oren\\.claude\\brain\\mcp\\server.mjs",
+      "stopCommand": "stdio:IDE-spawned",
+      "port": null,
+      "url": null,
+      "verify": "node C:\\Users\\oren\\.claude\\brain\\mcp\\smoke.mjs",
+      "workspaceFile": "F:\\ai-workspace\\workspaces\\brain.code-workspace"
+    },
+    {
+      "id": "brain-dispatcher",
+      "name": "Brain Dispatcher (Cursor)",
+      "path": "F:\\ai-workspace\\projects\\brain\\local",
+      "type": "script",
+      "startCommand": "F:\\ai-workspace\\scripts\\brain-sync.ps1",
+      "stopCommand": "note:One-shot sync script",
+      "port": null,
+      "url": "http://127.0.0.1:7717",
+      "healthUrl": "http://127.0.0.1:7717",
+      "workspaceFile": "F:\\ai-workspace\\workspaces\\brain.code-workspace"
+    },
+    {
+      "id": "cka-bootcamp",
+      "name": "CKA AI Bootcamp",
+      "path": "F:\\DevSecOps\\projects\\cka-ai-bootcamp",
+      "type": "npm",
+      "startCommand": "note:Requires bridge auth — start manually after gcloud/firebase login",
+      "stopCommand": "note:Manual",
+      "port": null,
+      "url": null,
+      "workspaceFile": "F:\\ai-workspace\\workspaces\\master.code-workspace"
+    }
+  ]
+}

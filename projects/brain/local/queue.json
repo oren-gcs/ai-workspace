@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "generated": "2026-08-30T10:00:00+03:00",
+  "source": "Merged from C:\\Users\\oren\\.claude\\brain\\queue.json + ai-workspace backlog",
+  "pending": [
+    {
+      "id": "mt3xxymw",
+      "text": "Relocate docker_data.vhdx to F: — Docker Desktop > Settings > Resources > Advanced",
+      "requested": "2026-08-22T05:31:48.248Z",
+      "status": "needs-oren",
+      "blocked": "GUI + elevation. F:\\DockerData ready; ~122 GB on C:.",
+      "priority": "P0-infra"
+    },
+    {
+      "id": "brn8x2a1",
+      "text": "cka-ai-bootcamp bridge_agent.py binds 0.0.0.0 with debug=True — port 8088 wide open",
+      "requested": "2026-08-23T15:55:00.000Z",
+      "status": "needs-oren",
+      "blocked": "Bind 127.0.0.1, debug=False, add auth token + frontend field.",
+      "priority": "P0-security"
+    },
+    {
+      "id": "brn8x2b7",
+      "text": "Consolidate two bridge_agent.py copies into one shared module",
+      "requested": "2026-08-23T15:55:00.000Z",
+      "status": "pending",
+      "blocked": "Refactor after user confirms both stable.",
+      "priority": "P2-refactor"
+    },
+    {
+      "id": "to6vr41x",
+      "text": "Wire device-tools.mjs into brain/mcp/server.mjs",
+      "requested": "2026-08-28T14:19:58.014Z",
+      "status": "pending",
+      "blocked": "Module delivered; needs wiring into tool-registration block.",
+      "priority": "P1-brain"
+    },
+    {
+      "id": "brain-v2-001",
+      "text": "Port hourly brain dispatcher from Cowork to Cursor Automation",
+      "requested": "2026-08-30T07:00:00.000Z",
+      "status": "pending",
+      "blocked": null,
+      "priority": "P1-brain",
+      "path": "F:\\ai-workspace\\config\\automations\\brain-dispatcher-hourly.json"
+    },
+    {
+      "id": "earn-001",
+      "text": "doc-power-local-k8s: gh auth login then gh repo create + push (665a7dd)",
+      "requested": "2026-08-30T07:00:00.000Z",
+      "status": "needs-oren",
+      "blocked": "gh auth not visible to agent shell; verify oren-gcs identity.",
+      "priority": "P0-earn",
+      "path": "F:\\DevSecOps\\projects\\doc-power-local-k8s"
+    },
+    {
+      "id": "earn-002",
+      "text": "fun4kids: review 18 dirty files and commit when ready",
+      "requested": "2026-08-30T07:00:00.000Z",
+      "status": "pending",
+      "blocked": null,
+      "priority": "P1-earn",
+      "path": "F:\\fun4kids"
+    }
+  ],
+  "history": [
+    {
+      "id": "brain-v2-scaffold",
+      "text": "Formalize brain as ai-workspace agent-company project with brain-v2 local layer",
+      "status": "done",
+      "result": "projects/brain/local/, team.yaml roles, brain-sync.ps1, workspaces — 2026-08-30"
+    },
+    {
+      "id": "git-hang-fix",
+      "text": "Git hang: validate-drawio bash leak + phantom gitlinks",
+      "status": "done",
+      "result": "cleanup-stuck-git-bash.ps1; git status ~460ms — 2026-08-28"
+    },
+    {
+      "id": "device-control-hub",
+      "text": "Device control hub: CLI + HTTP API + MCP registry",
+      "status": "done",
+      "result": "device-control.ps1, :3920 API, device-apps.json — 2026-08-30"
+    }
+  ]
+}

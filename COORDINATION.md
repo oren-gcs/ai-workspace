@@ -33,6 +33,31 @@ Run `device-control status` before starting work. Green = port listening or smok
 | study-portal | 3007 |
 | grok-bot | 3847 |
 | ollama-mcp | 11435 |
+| brain-dashboard | 7717 |
+
+---
+
+## Brain project (meta orchestration)
+
+**Tier-1 meta project** — session memory, queue, RESUME protocol, earning priority routing.
+
+| Item | Path |
+|------|------|
+| Project root | `F:\ai-workspace\projects\brain` |
+| brain-v2 runtime | `F:\ai-workspace\projects\brain\local` |
+| Claude brain | `C:\Users\oren\.claude\brain` |
+| Workspace | `F:\ai-workspace\workspaces\brain.code-workspace` |
+| Sync | `F:\ai-workspace\scripts\brain-sync.ps1` |
+
+Open dedicated session:
+
+```powershell
+code --new-window F:\ai-workspace\workspaces\brain.code-workspace
+```
+
+Team roles: PM, IntegrationArchivist, DeviceOpsBridge, Dispatcher, LearningCoach, SecurityAuditor.
+
+Evolution doc: `projects/brain/BRAIN-EVOLUTION-2026-08-30.md`
 
 ---
 

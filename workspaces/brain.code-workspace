@@ -1,0 +1,65 @@
+{
+  "folders": [
+    {
+      "name": "brain",
+      "path": "F:/ai-workspace/projects/brain"
+    },
+    {
+      "name": "brain-v2 (local)",
+      "path": "F:/ai-workspace/projects/brain/local"
+    },
+    {
+      "name": "ai-workspace",
+      "path": "F:/ai-workspace"
+    }
+  ],
+  "settings": {},
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Brain: Sync from Claude",
+        "type": "shell",
+        "command": "powershell",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "F:/ai-workspace/scripts/brain-sync.ps1"
+        ],
+        "group": "none",
+        "presentation": { "reveal": "always", "panel": "shared" }
+      },
+      {
+        "label": "Brain: Ingest session learnings",
+        "type": "shell",
+        "command": "powershell",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "F:/ai-workspace/scripts/brain-ingest-session.ps1"
+        ],
+        "group": "none",
+        "presentation": { "reveal": "always", "panel": "shared" }
+      },
+      {
+        "label": "Device Control: Status",
+        "type": "shell",
+        "command": "powershell",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "F:/ai-workspace/scripts/device-control.ps1",
+          "status"
+        ],
+        "group": "none",
+        "presentation": { "reveal": "always", "panel": "shared" }
+      }
+    ]
+  }
+}

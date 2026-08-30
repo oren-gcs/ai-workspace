@@ -1,54 +1,75 @@
 project: Brain Meta Orchestration
 slug: brain
-localPath: C:\Users\oren\.claude\brain
-skills: [device-access-resolver, brain-dispatcher, brain-resume-protocol, security-scan-review]
-charter: Queue dispatch, session continuity, and cross-project orchestration. PM drains brain queue and coordinates winner-repo work.
+owner: oren-gcs / gcs-tech.org
+localPath: F:\ai-workspace\projects\brain\local
+claudePath: C:\Users\oren\.claude\brain
+brainV2Path: F:\ai-workspace\brain-v2
+skills: [brain-dispatcher, brain-resume-protocol, device-access-resolver, f-drive-project-map, security-scan-review]
+charter: Session memory, queue dispatch, RESUME protocol, cross-project coordination, earning-money priority routing. THE orchestration project of ai-workspace agent company.
 
 roles:
   ProjectManager:
     skill: brain-dispatcher
     skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
-    mcpServers: [brain, filesystem]
+    mcpServers: [brain, filesystem, device-control]
     instructions: |
-      Drain queue.json hourly. Write RESUME.md handoffs. Never commit secrets.
-      Coordinate P0 blockers (gh auth, docker moves) across projects.
+      Drain queue.json hourly. Write RESUME.md handoffs. Route P0-earn items first.
+      Coordinate blockers (gh auth, docker moves) across projects. Never commit secrets.
 
-  Developer:
+  IntegrationArchivist:
     skill: brain-dispatcher
     skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
-    mcpServers: [filesystem]
-    instructions: Maintain queue.json schema, digests, dispatcher scripts.
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Merge session artifacts into knowledge graph (append-only).
+      Run brain-sync.ps1 after cross-tool sessions. Update manifest when projects scaffold.
+      Maintain session-learnings.json via brain-ingest-session.ps1.
 
-  DevOps:
+  DeviceOpsBridge:
+    skill: device-access-resolver
+    skillPath: C:\Users\oren\.cursor\skills\device-access-resolver\SKILL.md
+    mcpServers: [device-control, filesystem]
+    instructions: |
+      Bridge brain dispatch to device-control.ps1 hub. Verify app health before dependent queue items.
+      Update device-apps.json when projects register. Run device-access-check.ps1 on blockers.
+
+  Dispatcher:
     skill: brain-dispatcher
-    mcpServers: [filesystem]
-    instructions: BrainDashboard AtLogOn schtask, hourly Cowork/Cursor automation.
-
-  QA:
-    skill: brain-dispatcher
-    mcpServers: [filesystem]
-    instructions: Verify queue drain produces actionable RESUME updates.
-
-  SecurityAuditor:
-    skill: security-scan-review
-    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
-    mcpServers: [filesystem]
-    instructions: Audit brain artifacts for credential leakage before commits.
+    skillPath: C:\Users\oren\.cursor\skills\brain-dispatcher\SKILL.md
+    mcpServers: [brain, filesystem]
+    instructions: |
+      Process queue.json pending items conservatively. Move done to history with short result.
+      Mark blocked items needs-oren. Port hourly Cowork dispatcher to Cursor Automation.
 
   LearningCoach:
     skill: brain-resume-protocol
     skillPath: C:\Users\oren\.cursor\skills\brain-resume-protocol\SKILL.md
     mcpServers: [brain]
-    instructions: Map session continuity patterns to study portal learning goals.
+    instructions: |
+      Map session continuity to study portal goals. CKA exam Oct 23 2026 countdown.
+      Surface learning opportunities from queue items tagged P1-earn or study-related.
+
+  SecurityAuditor:
+    skill: security-scan-review
+    skillPath: C:\Users\oren\.cursor\skills\security-scan-review\SKILL.md
+    mcpServers: [filesystem]
+    instructions: Audit brain artifacts for credential leakage before commits. Quarantine to F:\_archive\secrets-quarantine\.
 
 mcp:
   registry: F:\ai-workspace\mcp\registry.json
   allowedPaths:
+    - F:\ai-workspace\projects\brain
+    - F:\ai-workspace\projects\brain\local
+    - F:\ai-workspace\brain-v2
     - C:\Users\oren\.claude\brain
     - F:\ai-workspace
     - F:\_archive\_inventory
 
 monetization:
-  primary: Enables all projects (meta)
+  primary: Enables all projects (meta-orchestration)
+  earningPriorities:
+    - doc-power SaaS (P0-earn)
+    - fun4kids subscriptions (P1-earn)
+    - CKA study portal licensing (P2-earn)
   nextMilestone: Cursor Automation hourly queue drain
-  blockers: [BrainDashboard_schtask, gh_auth]
+  blockers: [gh_auth, BrainDashboard_schtask]

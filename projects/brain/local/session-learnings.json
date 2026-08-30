@@ -1,0 +1,61 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-08-30T10:00:00+03:00",
+  "source": "Distilled from F:\\ai-workspace\\ACTION-LOG.md and coordination docs",
+  "learnings": [
+    {
+      "date": "2026-08-24",
+      "topic": "F-drive winner map",
+      "summary": "Canonical paths: doc-power-local-k8s, fun4kids, GCS-tech, Gcs-CorDev, my_study_portal. Always resolve by absolute path, not folder name.",
+      "refs": ["F:\\_archive\\_inventory\\merges-2026-08-24.json", "F:\\.cursor\\rules\\f-drive-identification.mdc"]
+    },
+    {
+      "date": "2026-08-28",
+      "topic": "Git hang root cause",
+      "summary": "validate-drawio pre-commit hook spawned bash processes that never exited. Fix: cleanup-stuck-git-bash.ps1, disable hook if bash count returns.",
+      "refs": ["F:\\ai-workspace\\logs\\git-diagnosis-2026-08-28.md"]
+    },
+    {
+      "date": "2026-08-28",
+      "topic": "GCM to GH_TOKEN auth bridge",
+      "summary": "Agent shells may not see gh auth. Use sync-gh-auth.ps1 and device-access-resolver before push operations.",
+      "refs": ["F:\\ai-workspace\\scripts\\sync-gh-auth.ps1"]
+    },
+    {
+      "date": "2026-08-30",
+      "topic": "Device control hub pattern",
+      "summary": "device-control.ps1 + HTTP API :3920 + MCP stdio. App registry in device-apps.json. Prefer over legacy start-all-local.ps1.",
+      "refs": ["F:\\ai-workspace\\docs\\DEVICE-APP-CONTROL.md", "F:\\ai-workspace\\config\\device-apps.json"]
+    },
+    {
+      "date": "2026-08-28",
+      "topic": "Agent company structure",
+      "summary": "7+ project teams with team.yaml, AGENTS.md charter, local/ junction pattern. ProjectAgent npm run pm for dry-run.",
+      "refs": ["F:\\_archive\\_inventory\\project-agents-manifest.json"]
+    },
+    {
+      "date": "2026-08-28",
+      "topic": "Grok social bot scaffold",
+      "summary": "TypeScript runner on :3847. Requires XAI_API_KEY, WhatsApp provider, per-platform OAuth. Never commit .env.",
+      "refs": ["F:\\ai-workspace\\projects\\grok-social-bot"]
+    },
+    {
+      "date": "2026-08-30",
+      "topic": "Brain evolution v2",
+      "summary": "Brain is tier-1 meta project. Claude brain preserved; Cursor layer in projects/brain/local with sync bridge.",
+      "refs": ["F:\\ai-workspace\\projects\\brain\\BRAIN-EVOLUTION-2026-08-30.md"]
+    },
+    {
+      "date": "2026-08-28",
+      "topic": "Earn money priorities",
+      "summary": "P0: doc-power SaaS push. P1: fun4kids commit. P2: CKA study portal licensing. Route via brain queue priority field.",
+      "refs": ["F:\\ai-workspace\\projects\\brain\\local\\queue.json"]
+    },
+    {
+      "date": "2026-08-28",
+      "topic": "Chrome profile account map",
+      "summary": "Work lane OAuth uses oren@gcs-tech.org Chrome profile. See accounts-connection-map.json.",
+      "refs": ["F:\\ai-workspace\\config\\accounts-connection-map.json"]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "generated": "2026-08-30T10:00:00+03:00",
+  "note": "brain-v2 layer — synced from Claude brain + Cursor session resolutions",
+  "loops": [
+    {
+      "text": "Relocate docker_data.vhdx to F: — one Docker Desktop settings change frees ~122 GB on C:",
+      "source": "graph",
+      "age_days": 8,
+      "stale": false,
+      "blocker": "needs Oren: GUI click",
+      "cursor_action": "manual_only"
+    },
+    {
+      "text": "doc-power-local-k8s: git init @ 665a7dd; remote push blocked on gh auth",
+      "source": "graph",
+      "age_days": 2,
+      "stale": false,
+      "blocker": "gh auth not visible to agent shell",
+      "cursor_action": "gh_auth_then_push",
+      "path": "F:\\DevSecOps\\projects\\doc-power-local-k8s"
+    },
+    {
+      "text": "cka-ai-bootcamp bridge_agent.py binds 0.0.0.0 with debug=True — fix before :8088 start",
+      "source": "queue",
+      "age_days": 7,
+      "stale": false,
+      "blocker": "needs Oren: frontend token field + bind 127.0.0.1",
+      "cursor_action": "implement_with_approval",
+      "path": "F:\\DevSecOps\\projects\\cka-ai-bootcamp\\bridge_agent.py"
+    },
+    {
+      "text": "Two GitHub accounts (oren-gcs vs gilboacloud) — verify before doc-power push",
+      "source": "RESUME",
+      "age_days": 7,
+      "stale": false,
+      "blocker": "needs Oren: verify GCM credential + gh auth login",
+      "cursor_action": "manual_only"
+    },
+    {
+      "text": "RESOLVED: morning-board wrong fun4kids remote — archived to F:\\_archive\\project-snapshots\\kids-family\\",
+      "source": "merges-2026-08-24",
+      "age_days": 6,
+      "stale": true,
+      "blocker": null,
+      "cursor_action": "none"
+    },
+    {
+      "text": "RESOLVED: Git hang validate-drawio bash leak — fixed 2026-08-28",
+      "source": "ACTION-LOG",
+      "age_days": 2,
+      "stale": true,
+      "blocker": null,
+      "cursor_action": "none"
+    },
+    {
+      "text": "RESOLVED: ai-workspace now has git repo with agent-company structure",
+      "source": "session-2026-08-28",
+      "age_days": 2,
+      "stale": true,
+      "blocker": null,
+      "cursor_action": "none"
+    },
+    {
+      "text": "RESOLVED: credentials quarantined to F:\\_archive\\secrets-quarantine\\",
+      "source": "security-2026-08-24",
+      "age_days": 6,
+      "stale": true,
+      "blocker": null,
+      "cursor_action": "none"
+    },
+    {
+      "text": "Brain formalized as tier-1 agent-company project — brain-v2 local layer live",
+      "source": "brain-evolution-2026-08-30",
+      "age_days": 0,
+      "stale": false,
+      "blocker": null,
+      "cursor_action": "none",
+      "path": "F:\\ai-workspace\\projects\\brain"
+    },
+    {
+      "text": "Port hourly brain dispatcher from Cowork to Cursor Automation",
+      "source": "brain-evolution-2026-08-30",
+      "age_days": 0,
+      "stale": false,
+      "blocker": null,
+      "cursor_action": "cursor_automation",
+      "path": "F:\\ai-workspace\\config\\automations\\brain-dispatcher-hourly.json"
+    },
+    {
+      "text": "Grok social bot scaffold — OAuth/WhatsApp require user browser setup",
+      "source": "session-2026-08-28",
+      "age_days": 2,
+      "stale": false,
+      "blocker": "needs Oren: XAI_API_KEY + WhatsApp provider",
+      "cursor_action": "manual_oauth",
+      "path": "F:\\ai-workspace\\projects\\grok-social-bot\\local"
+    }
+  ]
+}

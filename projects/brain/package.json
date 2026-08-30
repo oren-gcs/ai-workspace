@@ -1,0 +1,15 @@
+{
+  "name": "@ai-workspace/brain",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Brain meta-orchestration — queue, RESUME, session learnings, Claude↔Cursor sync",
+  "scripts": {
+    "sync": "powershell -NoProfile -ExecutionPolicy Bypass -File ../../scripts/brain-sync.ps1",
+    "ingest": "powershell -NoProfile -ExecutionPolicy Bypass -File ../../scripts/brain-ingest-session.ps1",
+    "validate": "node --experimental-json-modules -e \"import fs from 'fs'; for (const f of ['local/queue.json','local/open-loops.json','local/session-learnings.json']) JSON.parse(fs.readFileSync(f,'utf8')); console.log('OK', f);\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

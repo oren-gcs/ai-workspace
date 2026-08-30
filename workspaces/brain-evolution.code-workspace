@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "name": "brain (Cursor project)",
+      "path": "F:\\ai-workspace\\projects\\brain"
+    },
+    {
+      "name": "brain-v2 (Cursor layer)",
+      "path": "F:\\ai-workspace\\brain-v2"
+    },
+    {
+      "name": "Claude brain (canonical — prefer read, append-only writes)",
+      "path": "C:\\Users\\oren\\.claude\\brain"
+    },
+    {
+      "name": "ai-workspace (orchestration)",
+      "path": "F:\\ai-workspace"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/digests": false
+    }
+  },
+  "extensions": {
+    "recommendations": []
+  }
+}

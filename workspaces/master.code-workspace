@@ -1,0 +1,91 @@
+﻿{
+    "settings":  {
+
+                 },
+    "folders":  [
+                    {
+                        "name":  "ai-workspace",
+                        "path":  "F:/ai-workspace"
+                    },
+                    {
+                        "name":  "doc-power-local-k8s",
+                        "path":  "F:/DevSecOps/projects/doc-power-local-k8s"
+                    },
+                    {
+                        "name":  "fun4kids",
+                        "path":  "F:/fun4kids"
+                    },
+                    {
+                        "name":  "GCS-tech",
+                        "path":  "F:/DevSecOps/projects/GCS-tech"
+                    },
+                    {
+                        "name":  "Gcs-CorDev",
+                        "path":  "F:/DevSecOps/projects/Gcs-CorDev"
+                    },
+                    {
+                        "name":  "my_study_portal",
+                        "path":  "F:/DevSecOps/projects/my_study_portal"
+                    },
+                    {
+                        "name":  "cka-ai-bootcamp",
+                        "path":  "F:/DevSecOps/projects/cka-ai-bootcamp"
+                    },
+                    {
+                        "name":  "grok-social-bot",
+                        "path":  "F:/ai-workspace/projects/grok-social-bot"
+                    },
+                    {
+                        "name":  "brain",
+                        "path":  "F:/ai-workspace/projects/brain"
+                    }
+                ],
+    "tasks":  {
+                  "version":  "2.0.0",
+                  "tasks":  [
+                                  {
+                                      "label":  "Device Control: Status",
+                                      "type":  "shell",
+                                      "command":  "powershell",
+                                      "args":  [
+                                                   "-NoProfile",
+                                                   "-ExecutionPolicy",
+                                                   "Bypass",
+                                                   "-File",
+                                                   "F:/ai-workspace/scripts/device-control.ps1",
+                                                   "status"
+                                               ],
+                                      "group":  "none",
+                                      "presentation":  {
+                                                           "reveal":  "always",
+                                                           "panel":  "shared"
+                                                       },
+                                      "problemMatcher":  [
+
+                                                         ]
+                                  },
+                                  {
+                                      "label":  "Device Control: Start All",
+                                      "type":  "shell",
+                                      "command":  "powershell",
+                                      "args":  [
+                                                   "-NoProfile",
+                                                   "-ExecutionPolicy",
+                                                   "Bypass",
+                                                   "-File",
+                                                   "F:/ai-workspace/scripts/device-control.ps1",
+                                                   "start",
+                                                   "all"
+                                               ],
+                                      "group":  "none",
+                                      "presentation":  {
+                                                           "reveal":  "always",
+                                                           "panel":  "shared"
+                                                       },
+                                      "problemMatcher":  [
+
+                                                         ]
+                                  }
+                              ]
+              }
+}
