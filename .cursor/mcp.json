@@ -1,5 +1,9 @@
 ﻿{
   "mcpServers": {
+    "device-control": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": ["F:\\ai-workspace\\mcp\\device-control\\server.mjs"]
+    },
     "brain": {
       "command": "C:\\Program Files\\nodejs\\node.exe",
       "args": ["C:\\Users\\oren\\.claude\\brain\\mcp\\server.mjs"]

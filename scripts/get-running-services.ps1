@@ -53,27 +53,44 @@ function Get-ProcessNameForPid {
     try { return (Get-Process -Id $ListenerPid -ErrorAction Stop).ProcessName } catch { return $null }
 }
 
+function Get-AllNodeProcesses {
+    if ($script:CachedNodeProcesses) { return $script:CachedNodeProcesses }
+    try {
+        $script:CachedNodeProcesses = @(Get-CimInstance Win32_Process -Filter "Name='node.exe'" -ErrorAction SilentlyContinue)
+    } catch { $script:CachedNodeProcesses = @() }
+    return $script:CachedNodeProcesses
+}
+
+function Get-DockerPsLines {
+    if ($null -ne $script:CachedDockerLines) { return $script:CachedDockerLines }
+    $script:CachedDockerLines = @()
+    try {
+        docker info 2>$null | Out-Null
+        if ($LASTEXITCODE -eq 0) {
+            $script:CachedDockerLines = @(docker ps --format "{{.Names}}|{{.Status}}" 2>$null)
+        }
+    } catch {}
+    return $script:CachedDockerLines
+}
+
 function Get-DockerContainerStatus {
     param([string[]]$NamePatterns)
     $result = @{ Running = $false; Names = @(); State = "unknown" }
-    try {
-        docker info 2>$null | Out-Null
-        if ($LASTEXITCODE -ne 0) { $result.State = "docker-down"; return $result }
-        $lines = @(docker ps --format "{{.Names}}|{{.Status}}" 2>$null)
-        foreach ($line in $lines) {
-            if (-not $line) { continue }
-            $parts = $line -split "\|", 2
-            $name = $parts[0]
-            $status = if ($parts.Length -gt 1) { $parts[1] } else { "" }
-            foreach ($pat in $NamePatterns) {
-                if ($name -match $pat) {
-                    $result.Names += $name
-                    if ($status -match "^Up") { $result.Running = $true; $result.State = "up" }
-                }
+    $lines = Get-DockerPsLines
+    if ($lines.Count -eq 0) { $result.State = "docker-down"; return $result }
+    foreach ($line in $lines) {
+        if (-not $line) { continue }
+        $parts = $line -split "\|", 2
+        $name = $parts[0]
+        $status = if ($parts.Length -gt 1) { $parts[1] } else { "" }
+        foreach ($pat in $NamePatterns) {
+            if ($name -match $pat) {
+                $result.Names += $name
+                if ($status -match "^Up") { $result.Running = $true; $result.State = "up" }
             }
         }
-        if ($result.Names.Count -gt 0 -and -not $result.Running) { $result.State = "down" }
-    } catch { $result.State = "error" }
+    }
+    if ($result.Names.Count -gt 0 -and -not $result.Running) { $result.State = "down" }
     return $result
 }
 
@@ -81,15 +98,24 @@ function Get-NodePidForProject {
     param([string]$ProjectPath)
     if (-not $ProjectPath -or $ProjectPath -eq "system") { return $null }
     $norm = $ProjectPath.TrimEnd('\')
-    try {
-        $procs = Get-CimInstance Win32_Process -Filter "Name='node.exe'" -ErrorAction SilentlyContinue
-        foreach ($p in $procs) {
-            if ($p.CommandLine -and ($p.CommandLine -like ("*" + $norm + "*"))) {
-                return [int]$p.ProcessId
-            }
+    foreach ($p in (Get-AllNodeProcesses)) {
+        if ($p.CommandLine -and ($p.CommandLine -like ("*" + $norm + "*"))) {
+            return [int]$p.ProcessId
         }
-    } catch {}
+    }
     return $null
+}
+
+function Test-BrainSmoke {
+    $smoke = "C:\Users\oren\.claude\brain\mcp\smoke.mjs"
+    if (-not (Test-Path $smoke)) { return $false }
+    $job = Start-Job -ScriptBlock { param($s) & node $s 2>&1 } -ArgumentList $smoke
+    $done = Wait-Job $job -Timeout 5
+    if (-not $done) { Stop-Job $job -Force; Remove-Job $job -Force; return $false }
+    $lines = @(Receive-Job $job)
+    Remove-Job $job -Force
+    $text = ($lines | ForEach-Object { "$_" }) -join [Environment]::NewLine
+    return ($text -match "INIT: ok") -and ($text -match "STATUS: ok")
 }
 
 function New-ServiceEntry {

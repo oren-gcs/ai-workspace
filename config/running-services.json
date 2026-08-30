@@ -1,0 +1,66 @@
+﻿{
+    "generatedAt":  "2026-08-30T10:06:37.5852484+03:00",
+    "services":  {
+                     "ollama":  {
+                                    "detail":  "port=11434 listen=True http=True",
+                                    "pid":  null,
+                                    "running":  true,
+                                    "checked":  "2026-08-30T10:06:20.0629425+03:00"
+                                },
+                     "ollama-mcp":  {
+                                        "detail":  "port=11435 listen=True http=True",
+                                        "pid":  null,
+                                        "running":  true,
+                                        "checked":  "2026-08-30T10:06:20.4090163+03:00"
+                                    },
+                     "cordev":  {
+                                    "detail":  "port=3004 listen=False http=False",
+                                    "pid":  null,
+                                    "running":  false,
+                                    "checked":  "2026-08-30T10:06:17.0582263+03:00"
+                                },
+                     "doc-power":  {
+                                       "detail":  "port3000=True http=True",
+                                       "pid":  null,
+                                       "running":  true,
+                                       "checked":  "2026-08-30T10:06:09.6569957+03:00"
+                                   },
+                     "cka-bootcamp":  {
+                                          "detail":  "no port configured",
+                                          "pid":  null,
+                                          "running":  false,
+                                          "checked":  "2026-08-30T10:06:37.5643041+03:00"
+                                      },
+                     "grok-bot":  {
+                                      "detail":  "port=3847 listen=True http=False",
+                                      "pid":  null,
+                                      "running":  true,
+                                      "checked":  "2026-08-30T10:06:19.3807369+03:00"
+                                  },
+                     "study-portal":  {
+                                          "detail":  "port=3007 listen=True http=True",
+                                          "pid":  null,
+                                          "running":  true,
+                                          "checked":  "2026-08-30T10:06:19.2620284+03:00"
+                                      },
+                     "gcs-tech":  {
+                                      "detail":  "port=3003 listen=True http=False",
+                                      "pid":  null,
+                                      "running":  true,
+                                      "checked":  "2026-08-30T10:06:16.3169668+03:00"
+                                  },
+                     "brain-mcp":  {
+                                       "detail":  "smoke timeout",
+                                       "pid":  null,
+                                       "running":  false,
+                                       "checked":  "2026-08-30T10:06:37.5576572+03:00"
+                                   },
+                     "fun4kids":  {
+                                      "detail":  "port=3002 listen=True http=True",
+                                      "pid":  null,
+                                      "running":  true,
+                                      "checked":  "2026-08-30T10:06:12.6724959+03:00"
+                                  }
+                 },
+    "deviceControlVersion":  "1.0.0"
+}

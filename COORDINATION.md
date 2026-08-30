@@ -92,3 +92,7 @@ Open `F:\ai-workspace\workspaces\master.code-workspace` → **Terminal → Run T
 
 - **Device Control: Status**
 - **Device Control: Start All**
+
+## Active (2026-08-30)
+
+Local apps via `scripts/start-all-local.ps1`: study portal :3007, fun4kids :3002, GCS-tech :3003, grok bot :3847 (dry-run). Doc-power Docker stack needs Docker Desktop running then re-run script. CorDev insights needs `npm install` in `app-code/insights`.
