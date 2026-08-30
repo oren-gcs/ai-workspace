@@ -1,0 +1,37 @@
+{
+  "$comment": "Recommendations only — Cursor model is per-chat, not globally configurable from this repo.",
+  "version": "2026-08-30",
+  "device_ops": {
+    "prefer": "scripts",
+    "wrapper_script": "F:\\ai-workspace\\scripts\\smart-device-op.ps1",
+    "fallback_agent_model": "composer-2.5-fast",
+    "fallback_skill": "device-access-resolver"
+  },
+  "cowork_triggers": [
+    "claude desktop ui",
+    "continue-stopped",
+    "push notification",
+    "electron scroll",
+    "cowork session resume",
+    "computer-use on claude app"
+  ],
+  "cursor_subagent_types": {
+    "shell": "device ops — run PS1 first, then shell subagent if script fails",
+    "explore": "read-only audit",
+    "generalPurpose": "multi-step implementation",
+    "ci-investigator": "single failing PR check"
+  },
+  "model_recommendations": {
+    "device_ops": "composer-2.5-fast",
+    "code_implementation": "default or thinking tier (user choice per chat)",
+    "read_only_explore": "composer-2.5-fast"
+  },
+  "local_scripts": {
+    "status": "F:\\ai-workspace\\scripts\\status-all.ps1",
+    "start": "F:\\ai-workspace\\scripts\\start-all-local.ps1",
+    "diagnose": "F:\\ai-workspace\\scripts\\device-access-check.ps1",
+    "push_notify": "C:\\Users\\oren\\.claude\\brain\\scripts\\brain-notify.ps1",
+    "gh_sync": "F:\\ai-workspace\\scripts\\sync-gh-auth.ps1",
+    "auto_push": "F:\\ai-workspace\\scripts\\auto-push.ps1"
+  }
+}
