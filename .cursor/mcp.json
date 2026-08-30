@@ -1,0 +1,36 @@
+﻿{
+  "mcpServers": {
+    "brain": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": ["C:\\Users\\oren\\.claude\\brain\\mcp\\server.mjs"]
+    },
+    "ollama-mcp": {
+      "url": "http://127.0.0.1:11435/mcp"
+    },
+    "doc-power-ollama-agents": {
+      "command": "python",
+      "args": [
+        "F:\\DevSecOps\\projects\\doc-power-local-k8s\\mcp-ollama-agents\\server.py"
+      ],
+      "env": {
+        "OLLAMA_URL": "http://127.0.0.1:11434",
+        "ADMIN_SERVICE_URL": "http://127.0.0.1:8008"
+      }
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {
+        "MEMORY_FILE_PATH": "F:\\ai-workspace\\.memory\\knowledge-graph.json"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "F:\\ai-workspace"]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    }
+  }
+}

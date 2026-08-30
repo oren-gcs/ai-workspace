@@ -1,55 +1,118 @@
-{
-  "version": "1.0.0",
-  "generatedAt": "2026-08-28",
-  "description": "Local MCP servers for agent-company orchestration. Per-project overrides in team.yaml.",
-  "servers": {
-    "ollama": {
-      "transport": "http",
-      "url": "http://127.0.0.1:11435/mcp",
-      "description": "Local Ollama via ollama-mcp bridge. Route bulk work to qwen2.5:3b.",
-      "costTier": "free",
-      "source": "C:\\Users\\oren\\ollama-mcp"
-    },
-    "memory": {
-      "transport": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"],
-      "env": {
-        "MEMORY_FILE_PATH": "F:\\ai-workspace\\.memory\\knowledge-graph.json"
-      },
-      "costTier": "free"
-    },
-    "filesystem": {
-      "transport": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem"],
-      "env": {},
-      "note": "Scope path set per-project in team.yaml allowedPaths"
-    },
-    "sequential-thinking": {
-      "transport": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
-      "costTier": "free"
-    },
-    "brain": {
-      "transport": "file",
-      "path": "C:\\Users\\oren\\.claude\\brain",
-      "files": ["queue.json", "RESUME.md", "open-loops.json", "knowledge-graph.json"],
-      "note": "Read via agent file tools, not MCP server"
-    }
-  },
-  "future": {
-    "docker": {
-      "transport": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-docker"],
-      "status": "planned"
-    },
-    "grok-reviewer": {
-      "transport": "http",
-      "configTemplate": "F:\\ai-workspace\\config\\grok-reviewer.json.template",
-      "status": "stub"
-    }
-  }
+﻿{
+    "servers":  {
+                    "ollama-mcp":  {
+                                       "cursorConfig":  "F:\\ai-workspace\\.cursor\\mcp.json",
+                                       "url":  "http://127.0.0.1:11435/mcp",
+                                       "project":  "C:\\Users\\oren\\ollama-mcp",
+                                       "status":  "up",
+                                       "command":  "node server.js",
+                                       "transport":  "http",
+                                       "port":  11435,
+                                       "env":  {
+                                                   "MCP_BIND":  "127.0.0.1",
+                                                   "MCP_PORT":  "11435",
+                                                   "OLLAMA_HOST":  "http://127.0.0.1:11434"
+                                               }
+                                   },
+                    "mcp-filesystem":  {
+                                           "args":  [
+                                                        "-y",
+                                                        "@modelcontextprotocol/server-filesystem",
+                                                        "F:\\ai-workspace"
+                                                    ],
+                                           "transport":  "stdio",
+                                           "command":  "npx",
+                                           "status":  "on-demand",
+                                           "cursorConfig":  "F:\\ai-workspace\\.cursor\\mcp.json"
+                                       },
+                    "brain-mcp":  {
+                                      "verify":  "node C:\\Users\\oren\\.claude\\brain\\mcp\\smoke.mjs",
+                                      "cursorConfig":  "F:\\ai-workspace\\.cursor\\mcp.json",
+                                      "project":  "C:\\Users\\oren\\.claude\\brain\\mcp",
+                                      "status":  "ready",
+                                      "command":  "node",
+                                      "transport":  "stdio",
+                                      "port":  null,
+                                      "args":  [
+                                                   "C:\\Users\\oren\\.claude\\brain\\mcp\\server.mjs"
+                                               ]
+                                  },
+                    "grok-social-bot":  {
+                                            "port":  3847,
+                                            "status":  "up",
+                                            "project":  "F:\\ai-workspace\\projects\\grok-social-bot",
+                                            "command":  "npm run start",
+                                            "note":  "MCP-adjacent OAuth/webhook service",
+                                            "url":  "http://127.0.0.1:3847",
+                                            "transport":  "http-webhook"
+                                        },
+                    "ollama-daemon":  {
+                                          "port":  11434,
+                                          "status":  "up",
+                                          "project":  "system",
+                                          "verify":  "Invoke-WebRequest http://127.0.0.1:11434/api/tags",
+                                          "url":  "http://127.0.0.1:11434",
+                                          "transport":  "http-prereq"
+                                      },
+                    "doc-power-ollama-agents":  {
+                                                    "args":  [
+                                                                 "F:\\DevSecOps\\projects\\doc-power-local-k8s\\mcp-ollama-agents\\server.py"
+                                                             ],
+                                                    "cursorConfig":  "F:\\DevSecOps\\projects\\doc-power-local-k8s\\.mcp.json",
+                                                    "project":  "F:\\DevSecOps\\projects\\doc-power-local-k8s",
+                                                    "command":  "python",
+                                                    "port":  null,
+                                                    "env":  {
+                                                                "ADMIN_SERVICE_URL":  "http://localhost:8008",
+                                                                "OLLAMA_URL":  "http://localhost:11434"
+                                                            },
+                                                    "transport":  "stdio",
+                                                    "status":  "ready",
+                                                    "note":  "stdio only — do not detach"
+                                                },
+                    "mcp-sequential-thinking":  {
+                                                    "args":  [
+                                                                 "-y",
+                                                                 "@modelcontextprotocol/server-sequential-thinking"
+                                                             ],
+                                                    "transport":  "stdio",
+                                                    "command":  "npx",
+                                                    "status":  "on-demand",
+                                                    "cursorConfig":  "F:\\ai-workspace\\.cursor\\mcp.json"
+                                                },
+                    "mcp-memory":  {
+                                       "args":  [
+                                                    "-y",
+                                                    "@modelcontextprotocol/server-memory"
+                                                ],
+                                       "env":  {
+                                                   "MEMORY_FILE_PATH":  "F:\\ai-workspace\\.memory\\knowledge-graph.json"
+                                               },
+                                       "command":  "npx",
+                                       "cursorConfig":  "F:\\ai-workspace\\.cursor\\mcp.json",
+                                       "status":  "on-demand",
+                                       "transport":  "stdio"
+                                   },
+                    "MCP_DOCKER":  {
+                                       "args":  [
+                                                    "mcp",
+                                                    "gateway",
+                                                    "run",
+                                                    "--profile",
+                                                    "default"
+                                                ],
+                                       "cursorConfig":  "Claude Desktop",
+                                       "project":  "docker-mcp-toolkit",
+                                       "command":  "docker",
+                                       "port":  null,
+                                       "transport":  "stdio",
+                                       "status":  "down",
+                                       "verify":  "docker info",
+                                       "note":  "requires Docker Desktop daemon"
+                                   }
+                },
+    "description":  "Local MCP servers and MCP-adjacent services (127.0.0.1 only).",
+    "generatedAt":  "2026-08-30",
+    "version":  "1.1.0",
+    "lastChecked":  "2026-08-30T09:40:38.4113025+03:00"
 }
