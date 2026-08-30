@@ -1,4 +1,4 @@
-# Agent routing — Cowork vs Cursor vs local scripts
+﻿# Agent routing — Cowork vs Cursor vs local scripts
 
 **Goal:** Zero LLM cost for repeated device ops; escalate only when scripts cannot finish.
 
@@ -63,7 +63,7 @@ User request
 |--------|---------|
 | `scripts/smart-device-op.ps1` | Router: status \| start \| stop \| push \| diagnose |
 | `scripts/status-all.ps1` | Read-only ports + HTTP health (no starts) |
-| `scripts/start-all-local.ps1` | Start apps, MCPs, doc-power; skip if port up (`-SkipIfRunning`) |
+| `scripts/start-all-local.ps1` | Start apps, MCPs, doc-power; skip if port up (`-SkipIfRunning`); UI opt-in only (`-OpenUI`) |
 | `scripts/start-all-mcps.ps1` | HTTP MCP services (ollama-mcp :11435, etc.) |
 | `scripts/device-access-check.ps1` | gh, docker, paths, elevation diagnostic |
 | `scripts/sync-gh-auth.ps1` | Wire gh from GCM / GH_TOKEN |
@@ -81,7 +81,7 @@ User request
 | `generalPurpose` | Multi-step non-trivial work | default / thinking |
 | `ci-investigator` | One failing PR check | composer-2.5-fast |
 
-Do **not** spawn multiple subagents for "start all apps" — run `start-all-local.ps1 -SkipIfRunning` once.
+Do **not** spawn multiple subagents for "start all apps" — run `start-all-local.ps1 -SkipIfRunning -NoOpen` once.
 
 ---
 
@@ -105,7 +105,7 @@ Cowork **requires Claude Desktop running** on legion-lap.
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File F:\ai-workspace\scripts\smart-device-op.ps1 start
 # or directly:
-powershell -NoProfile -ExecutionPolicy Bypass -File F:\ai-workspace\scripts\start-all-local.ps1 -SkipIfRunning
+powershell -NoProfile -ExecutionPolicy Bypass -File F:\ai-workspace\scripts\start-all-local.ps1 -SkipIfRunning -NoOpen
 ```
 
 **Do not** spawn five Cursor subagents to start fun4kids, study portal, GCS-tech, etc.
@@ -135,3 +135,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File F:\ai-workspace\scripts\smar
 - `C:\Users\oren\.cursor\skills\claude-workflow-bridge\SKILL.md`
 - `C:\Users\oren\.cursor\skills\device-access-resolver\SKILL.md`
 - `C:\Users\oren\.claude\brain\RESUME.md` — brain handoff, phone channel
+

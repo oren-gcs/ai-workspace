@@ -1,4 +1,6 @@
 ﻿# register-git-background-worker.ps1 — Optional 30-minute git fetch/push worker
+# Convention: background/scheduled tasks use -NoOpen -SkipIfRunning for start-all-local.ps1
+# (see register-start-all-local-schedule.ps1). This worker has no UI; runs hidden only.
 param(
     [string]$TaskName = "ai-workspace-git-background-worker",
     [string]$ScriptPath = "F:\ai-workspace\scripts\git-background-worker.ps1"

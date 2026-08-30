@@ -30,6 +30,1645 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 ## Log entries
 
 
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Phone + Gemini brain review and audio readout
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent review) |
+| **Action** | Wrote comprehensive Phone + Gemini Memory review; audio script; edge-tts MP3 fallback; NotebookLM instructions |
+| **Target** | `C:\Users\oren\.claude\brain\reviews\` |
+| **Result** | success — review + script + MP3 generated; NotebookLM web-only (no local CLI) |
+| **Next step** | Oren: paste script into notebooklm.google.com for Audio Overview, or play local MP3 |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-30 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-29 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push completed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | doc-power-local-k8s: nothing to push | ai-workspace: pushed 1 commit(s) |
+| **Result** | success |
+| **Next step** | none |
+
+
+### 2026-08-28 — Auto-push partial/failed
+
+| Field | Value |
+|---|---|
+| **Actor** | auto-push.ps1 |
+| **Action** | Auto-push run |
+| **Target** | ai-workspace: git push failed (exit 128) |
+| **Result** | partial |
+| **Next step** | none |
+
+
 ### 2026-08-28 — Git diagnosis follow-up f09716b0
 
 | Field | Value |
@@ -647,4 +2286,25 @@ Append new entries at the **top** of [Log entries](#log-entries) (newest first).
 | **Target** | LEGION-LAP, F:\ai-workspace |
 | **Result** | success — report logs/git-diagnosis-2026-08-28.md; git submodule status clean; status -uno ~460ms |
 | **Next step** | gh auth login in interactive shell; disable deploy-on-aws hook if bash count returns; run cleanup script periodically |
+
+
+### 2026-08-30 — Start all local MCP servers
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (subagent) |
+| **Action** | Added start-all-mcps.ps1; integrated into start-all-local.ps1; updated mcp/registry.json and .cursor/mcp.json template |
+| **Target** | F:\ai-workspace |
+| **Result** | partial — ollama-mcp :11435 and grok :3847 listening; MCP_DOCKER blocked (Docker daemon not running) |
+| **Next step** | Start Docker Desktop for MCP_DOCKER; reload Cursor MCP from F:\ai-workspace\.cursor\mcp.json |
+
+### 2026-08-30 — Repeated app launch diagnosis
+
+| Field | Value |
+|---|---|
+| **Actor** | cursor-agent (command subagent) |
+| **Action** | Diagnosed VS Code/browser repeat opens; confirmed git worker 30m schedule benign; default start-all to -NoOpen / -OpenUI opt-in; report logs/repeated-launch-diagnosis-2026-08-30.md |
+| **Target** | LEGION-LAP, F:\ai-workspace |
+| **Result** | success — root cause legacy start-all-local UI-default run at 09:26; no start-all scheduled task; no duplicate dev ports |
+| **Next step** | Use start-all-local -NoOpen -SkipIfRunning; quit extra VS Code windows; start Docker engine for doc-power/MCP_DOCKER |
 

@@ -284,6 +284,48 @@
                       "group":  "none"
                   },
                   {
+                      "label":  "Status: all local apps + MCPs",
+                      "type":  "shell",
+                      "command":  "powershell",
+                      "args":  [
+                                   "-NoProfile",
+                                   "-ExecutionPolicy",
+                                   "Bypass",
+                                   "-File",
+                                   "F:\\ai-workspace\\scripts\\status-all.ps1"
+                               ],
+                      "presentation":  {
+                                           "panel":  "shared",
+                                           "reveal":  "always"
+                                       },
+                      "problemMatcher":  [
+
+                                         ],
+                      "group":  "none"
+                  },
+                  {
+                      "label":  "Start all local (idempotent, no UI)",
+                      "type":  "shell",
+                      "command":  "powershell",
+                      "args":  [
+                                   "-NoProfile",
+                                   "-ExecutionPolicy",
+                                   "Bypass",
+                                   "-File",
+                                   "F:\\ai-workspace\\scripts\\start-all-local.ps1",
+                                   "-NoOpen",
+                                   "-SkipIfRunning"
+                               ],
+                      "presentation":  {
+                                           "panel":  "shared",
+                                           "reveal":  "always"
+                                       },
+                      "problemMatcher":  [
+
+                                         ],
+                      "group":  "none"
+                  },
+                  {
                       "label":  "Git background sync (all repos)",
                       "type":  "shell",
                       "command":  "powershell",

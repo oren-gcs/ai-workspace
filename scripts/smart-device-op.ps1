@@ -1,4 +1,4 @@
-# smart-device-op.ps1 — Route device ops to local scripts first; escalate only on failure.
+﻿# smart-device-op.ps1 — Route device ops to local scripts first; escalate only on failure.
 param(
   [Parameter(Mandatory = $true, Position = 0)]
   [ValidateSet("status", "start", "stop", "push", "diagnose")]
@@ -7,6 +7,7 @@ param(
   [string]$Title = "Brain",
   [string]$Message = "",
   [switch]$SkipIfRunning,
+  [switch]$OpenUI,
   [switch]$Json
 )
 
@@ -48,6 +49,7 @@ switch ($Operation) {
 
   "start" {
     $args = @()
+    if (-not $OpenUI) { $args += "-NoOpen" } else { $args += "-OpenUI" }
     if ($SkipIfRunning) { $args += "-SkipIfRunning" }
     $r = Invoke-ScriptChecked -Label "start" -ScriptPath (Join-Path $Root "scripts\start-all-local.ps1") -ScriptArgs $args
     if (-not $r.Ok) {
@@ -111,3 +113,4 @@ switch ($Operation) {
     exit $r.ExitCode
   }
 }
+

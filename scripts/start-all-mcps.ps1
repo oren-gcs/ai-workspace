@@ -1,8 +1,10 @@
 ﻿# start-all-mcps.ps1 — Start HTTP/local MCP-adjacent services; verify stdio MCP readiness.
 param(
-  [switch]$SkipGrok,
-  [switch]$StartOllamaMcp,
-  [int]$WaitSeconds = 8
+    [switch]$SkipGrok,
+    [switch]$StartOllamaMcp,
+    [switch]$SkipIfRunning = $true,
+    [switch]$ForceRestart,
+    [int]$WaitSeconds = 8
 )
 $ErrorActionPreference = "Continue"
 $Root = "F:\ai-workspace"
@@ -11,6 +13,9 @@ $Day = Get-Date -Format "yyyy-MM-dd"
 $McpLog = Join-Path $LogDir ("mcps-" + $Day + ".md")
 $Stamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 if (-not (Test-Path $LogDir)) { New-Item -ItemType Directory -Path $LogDir -Force | Out-Null }
+
+$ProbeScript = Join-Path $Root "scripts\get-running-services.ps1"
+if (Test-Path $ProbeScript) { & $ProbeScript -Quiet 2>&1 | Out-Null }
 
 function Write-McpLog([string]$Line) {
   if (-not (Test-Path $McpLog)) {
@@ -38,11 +43,42 @@ function Test-HttpOk([string]$Url, [int]$TimeoutSec = 5) {
 }
 
 function Get-ListenerPid([int]$Port, [string]$Address = "127.0.0.1") {
+  try {
+    $conns = Get-NetTCPConnection -State Listen -ErrorAction SilentlyContinue |
+      Where-Object { $_.LocalPort -eq $Port -and ($_.LocalAddress -eq $Address -or $_.LocalAddress -eq "0.0.0.0") }
+    if ($conns) { return [int]($conns | Select-Object -First 1 -ExpandProperty OwningProcess) }
+  } catch {}
   $line = netstat -ano | Select-String -Pattern ("TCP\s+" + [regex]::Escape($Address) + ":" + $Port + "\s")
   if (-not $line) { return $null }
   $parts = ($line.ToString().Trim() -split "\s+")
   if ($parts.Length -ge 5) { return [int]$parts[-1] }
   return $null
+}
+
+function Get-ServiceFromRegistry([string]$Id) {
+  $regPath = Join-Path $Root "config\running-services.json"
+  if (-not (Test-Path $regPath)) { return $null }
+  $data = Get-Content -Raw $regPath | ConvertFrom-Json
+  return $data.services | Where-Object { $_.id -eq $Id } | Select-Object -First 1
+}
+
+function Test-ServiceHealthy {
+  param([string]$Id, [int]$Port, [string]$HealthUrl)
+  $reg = Get-ServiceFromRegistry -Id $Id
+  if ($reg -and $reg.status -eq "running" -and $reg.healthOk) { return $true }
+  if (-not (Test-PortListening $Port)) { return $false }
+  if ($HealthUrl) { return (Test-HttpOk $HealthUrl) }
+  return $true
+}
+
+function Stop-ListenerOnPort {
+  param([int]$Port)
+  $listenerPid = Get-ListenerPid -Port $Port
+  if ($listenerPid) {
+    Write-McpLog ("ForceRestart: stopping pid $listenerPid on port $Port")
+    Stop-Process -Id $listenerPid -Force -ErrorAction SilentlyContinue
+    Start-Sleep -Seconds 1
+  }
 }
 
 function Invoke-BrainSmoke() {
@@ -67,16 +103,25 @@ function Start-DetachedNode([string]$Name, [string]$WorkDir, [string]$ScriptPath
 }
 
 Write-Host ("[start-all-mcps] " + $Stamp)
-Write-McpLog "run started"
+Write-McpLog "run started (SkipIfRunning=$SkipIfRunning ForceRestart=$ForceRestart)"
 
 $results = @()
 
-$ollamaOk = Test-HttpOk "http://127.0.0.1:11434/api/tags" 10
-$results += [PSCustomObject]@{ Name="ollama-daemon"; Started=$ollamaOk; Port=11434; Transport="http-prereq"; CursorConfig="n/a"; Verify="Invoke-WebRequest http://127.0.0.1:11434/api/tags"; Note=$(if($ollamaOk){"reachable"}else{"start Ollama"}) }
+$ollamaOk = Test-ServiceHealthy -Id "ollama-daemon" -Port 11434 -HealthUrl "http://127.0.0.1:11434/api/tags"
+$results += [PSCustomObject]@{ Name="ollama-daemon"; Started=$ollamaOk; Port=11434; Transport="http-prereq"; CursorConfig="n/a"; Verify="Invoke-WebRequest http://127.0.0.1:11434/api/tags"; Note=$(if($ollamaOk){"already running"}else{"start Ollama manually"}) }
 
 $ollamaMcpDir = "C:\Users\oren\ollama-mcp"
 $ollamaMcpPort = 11435
-if ((-not (Test-PortListening $ollamaMcpPort)) -or $StartOllamaMcp) {
+$ollamaMcpHealthy = Test-ServiceHealthy -Id "ollama-mcp" -Port $ollamaMcpPort -HealthUrl "http://127.0.0.1:11435/"
+if ($ollamaMcpHealthy -and $SkipIfRunning -and -not $ForceRestart) {
+  Write-Host "[ollama-mcp] already running on :$ollamaMcpPort — skip"
+  Write-McpLog "ollama-mcp: already running — skip"
+} elseif ((Test-PortListening $ollamaMcpPort) -and -not $ForceRestart) {
+  $wrongPid = Get-ListenerPid $ollamaMcpPort
+  Write-Host "[ollama-mcp] WARN port $ollamaMcpPort in use by pid $wrongPid (not healthy) — skip (use -ForceRestart)"
+  Write-McpLog "ollama-mcp: port conflict pid=$wrongPid"
+} else {
+  if ($ForceRestart -and (Test-PortListening $ollamaMcpPort)) { Stop-ListenerOnPort -Port $ollamaMcpPort }
   if (Test-Path (Join-Path $ollamaMcpDir "server.js")) {
     $start = Start-DetachedNode -Name "ollama-mcp" -WorkDir $ollamaMcpDir -ScriptPath "server.js" -Env @{ MCP_PORT="$ollamaMcpPort"; MCP_BIND="127.0.0.1"; OLLAMA_HOST="http://127.0.0.1:11434" }
     Write-McpLog ("ollama-mcp start pid=" + $start.Pid)
@@ -97,9 +142,20 @@ try { docker info 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $dockerOk = $tr
 $results += [PSCustomObject]@{ Name="MCP_DOCKER"; Started=$dockerOk; Port=$null; Transport="stdio"; CursorConfig="Claude Desktop"; Verify="docker info"; Note=$(if($dockerOk){"IDE-spawn docker mcp gateway run"}else{"Docker daemon down"}) }
 
 $grokPort = 3847
-if (-not $SkipGrok -and -not (Test-PortListening $grokPort)) {
-  $grokScript = Join-Path $Root "scripts\start-grok-bot-session.ps1"
-  if (Test-Path $grokScript) { & $grokScript 2>&1 | Out-Null; Start-Sleep -Seconds 3 }
+$grokHealthy = Test-ServiceHealthy -Id "grok-social-bot" -Port $grokPort -HealthUrl "http://127.0.0.1:3847"
+if (-not $SkipGrok) {
+  if ($grokHealthy -and $SkipIfRunning -and -not $ForceRestart) {
+    Write-Host "[grok-social-bot] already running on :$grokPort — skip"
+    Write-McpLog "grok-social-bot: already running — skip"
+  } elseif ((Test-PortListening $grokPort) -and -not $ForceRestart) {
+    $wrongPid = Get-ListenerPid $grokPort
+    Write-Host "[grok-social-bot] WARN port $grokPort in use by pid $wrongPid — skip (use -ForceRestart)"
+    Write-McpLog "grok-social-bot: port conflict pid=$wrongPid"
+  } else {
+    if ($ForceRestart -and (Test-PortListening $grokPort)) { Stop-ListenerOnPort -Port $grokPort }
+    $grokScript = Join-Path $Root "scripts\start-grok-bot-session.ps1"
+    if (Test-Path $grokScript) { & $grokScript 2>&1 | Out-Null; Start-Sleep -Seconds 3 }
+  }
 }
 $grokListen = Test-PortListening $grokPort
 $results += [PSCustomObject]@{ Name="grok-social-bot"; Started=$grokListen; Port=$grokPort; Transport="http-webhook"; CursorConfig="n/a"; Verify="Test-NetConnection 127.0.0.1 -Port 3847"; Note=("pid=" + (Get-ListenerPid $grokPort)) }
@@ -109,6 +165,8 @@ foreach ($npxName in @("memory","filesystem","sequential-thinking")) {
 }
 
 Start-Sleep -Seconds $WaitSeconds
+
+if (Test-Path $ProbeScript) { & $ProbeScript -Quiet 2>&1 | Out-Null }
 
 $ollamaRow = $results | Where-Object Name -eq "ollama-mcp" | Select-Object -First 1
 if ($ollamaRow) {
