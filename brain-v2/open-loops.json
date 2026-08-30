@@ -1,0 +1,13 @@
+{
+  "generated": "2026-08-30T10:00:00+03:00",
+  "bridge": "C:\\Users\\oren\\.claude\\brain\\open-loops.json",
+  "loops": [
+    {"text": "Docker vhdx on C:", "stale": false, "cursor_action": "manual_only"},
+    {"text": "RESOLVED: doc-power winner doc-power-local-k8s", "stale": true},
+    {"text": "RESOLVED: credentials quarantined", "stale": true},
+    {"text": "RESOLVED: validate-drawio hook disabled", "stale": true},
+    {"text": "doc-power GitHub push pending", "stale": false, "cursor_action": "gh_repo_create_push"},
+    {"text": "cka bridge auth+CORS open", "stale": false, "cursor_action": "implement_with_approval"},
+    {"text": "Activate brain-dispatcher Cursor Automation", "stale": false, "cursor_action": "cursor_automation"}
+  ]
+}

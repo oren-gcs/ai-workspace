@@ -1,0 +1,14 @@
+{
+  "version": "2026-08-30",
+  "lastIngest": "2026-08-30T10:00:00+03:00",
+  "learnings": [
+    {"date": "2026-08-30", "category": "brain-evolution", "title": "Brain v2 Cursor layer created", "summary": "F:\\ai-workspace\\brain-v2 bridges Claude brain with Cursor session work.", "sources": ["ACTION-LOG"]},
+    {"date": "2026-08-30", "category": "git", "title": "validate-drawio hook caused git bash hangs", "summary": "Hook disabled; cleanup in git-background-worker.", "sources": ["ACTION-LOG"]},
+    {"date": "2026-08-28", "category": "auth", "title": "GCM to GH_TOKEN auth bridge", "summary": "sync-gh-auth.ps1 wires GCM OAuth to GH_TOKEN.", "sources": ["ACTION-LOG"]},
+    {"date": "2026-08-28", "category": "security", "title": "Credentials quarantined", "summary": "gcs-tech-su_credentials moved to secrets-quarantine.", "sources": ["ACTION-LOG"]},
+    {"date": "2026-08-28", "category": "architecture", "title": "Device-control hub pattern", "summary": "device-control.ps1 + HTTP :3920 + MCP stdio.", "sources": ["DEVICE-APP-CONTROL.md"]},
+    {"date": "2026-08-28", "category": "architecture", "title": "Agent company 7+ teams", "summary": "ProjectAgent + team.yaml per project.", "sources": ["project-agents-manifest.json"]},
+    {"date": "2026-08-28", "category": "projects", "title": "F: drive winner map locked", "summary": "doc-power-local-k8s, fun4kids, GCS-tech canonical.", "sources": ["f-drive-project-map"]},
+    {"date": "2026-08-28", "category": "monetization", "title": "Earn-money priority stack", "summary": "P1 doc-power, P2 fun4kids, P3 CKA.", "sources": ["project-agents-manifest.json"]}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Brain queue drain (hourly)",
+  "draft": true,
+  "source": "F:\\ai-workspace\\config\\automations\\brain-dispatcher-hourly.json",
+  "workflow": {
+    "triggers": [{"cron": {"cron": "0 * * * *"}}],
+    "prompts": ["brain-dispatcher: read queue, RESUME, device-control status, drain safe items, append ACTION-LOG"]
+  }
+}

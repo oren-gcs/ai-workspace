@@ -1,0 +1,14 @@
+{
+  "version": "2026-08-30",
+  "source": "Migrated from Claude brain queue + backlog",
+  "pending": [
+    {"id": "mt3xxymw", "text": "Relocate docker_data.vhdx to F:", "status": "needs-oren", "blocked": "GUI"},
+    {"id": "brn8x2a1", "text": "cka bridge auth+CORS", "status": "needs-oren", "blocked": "frontend token field"},
+    {"id": "brn8x2b7", "text": "Consolidate bridge_agent copies", "status": "pending"},
+    {"id": "to6vr41x", "text": "Wire device-tools into brain MCP", "status": "pending"},
+    {"id": "bv2-001", "text": "Activate Cursor Automation hourly dispatcher", "status": "pending"},
+    {"id": "bv2-003", "text": "Push doc-power-local-k8s to GitHub", "status": "pending"},
+    {"id": "bv2-005", "text": "Review fun4kids dirty tree", "status": "pending"}
+  ],
+  "history": []
+}

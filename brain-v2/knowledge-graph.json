@@ -1,0 +1,4 @@
+{"type":"entity","name":"brain-v2","entityType":"infra","observations":["F:\\ai-workspace\\brain-v2 — Cursor-evolved layer, created 2026-08-30."],"status":"active"}
+{"type":"entity","name":"device-control hub","entityType":"infra","observations":["F:\\ai-workspace\\scripts\\device-control.ps1 + HTTP :3920 + MCP stdio."],"status":"active"}
+{"type":"entity","name":"earn money priority stack","entityType":"commitment","observations":["P1 doc-power SaaS, P2 fun4kids, P3 CKA Oct 23 2026."],"status":"active"}
+{"type":"relation","from":"brain-v2","to":"the brain","relationType":"extends"}
